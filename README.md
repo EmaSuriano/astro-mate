@@ -1,4 +1,4 @@
-# astro-mate
+# Astro Theme: Mate 🧉
 
 WIP.
 

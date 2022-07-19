@@ -1,6 +1,4 @@
 ---
-import '../global.css';
-
 export interface Props {
   title: string;
 }
@@ -9,7 +7,7 @@ const { title } = Astro.props as Props;
 ---
 
 <!DOCTYPE html>
-<html lang='en'>
+<html lang='en' data-theme='light'>
   <head>
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width' />
@@ -34,6 +32,7 @@ const { title } = Astro.props as Props;
         font-size: var(--font-size-base);
         color: var(--color-text);
         background-color: var(--color-bg);
+        scroll-behavior: smooth;
       }
 
       body {
@@ -54,4 +53,7 @@ const { title } = Astro.props as Props;
       }
     </style>
   </body>
+  <script src='https://cdn.jsdelivr.net/npm/theme-change@2.0.2/index.js'>
+
+  </script>
 </html>
