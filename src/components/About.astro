@@ -1,41 +1,54 @@
 ---
+import { Markdown } from "astro/components";
+
+const aboutMeHref =
+  "https://gist.githubusercontent.com/EmaSuriano/b078b59e13bdbee9fd19926291687550/raw/81e472bba4999eb3b3656f17d3e3d370dcb79b41/mate-about.md";
+
+const aboutMe = await fetch(aboutMeHref).then((res) => res.text());
+
+const avatar = "https://placeimg.com/192/192/people";
 ---
 
-<div class='hero min-h-screen bg-base-200' id='about'>
-  <div class='hero-content flex-col lg:flex-row'>
-    <div>
-      <h2 class='text-5xl font-bold'>About me 🙋‍♂️</h2>
-      <p class='py-6'>
-        Hello 👋 I'm Mate a gatsby starter which is focus on simplicity and
-        extensibility. It's build with Gatsby(duh), Rebass (styled-component
-        system) and Contentful.
-      </p>
-      <p class='py-6'>
-        The starter will give you 4 sections (it's really easy to add more if
-        you want 😃):
-      </p>
-      <ul>
-        <li>
-          Landing: Displays a nice greeting with your name, also your roles
-          (what you are) and all your social links.
-        </li>
-        <li>
-          About: Show the about section where you can write about who you are,
-          what you like to do, etc. Also you can add a photo next to it!
-        </li>
-        <li>
-          Project: Displays a card for all your project that you've made and
-          also the posibility to link with github or and external link.
-        </li>
-        <li>
-          Writing: Take the information about your medium user and show up to 6
-          stories as cards with the link to Medium.
-        </li>
-      </ul>
+<div class="hero min-h-screen bg-base-200 relative" id="about">
+  <div class="hero-content flex-col lg:flex-row">
+    <div class="flex flex-col gap-8 about-container">
+      <h2 class="text-5xl mb-4">About me 🙋‍♂️</h2>
+
+      <Markdown content={aboutMe}>
+
+      </Markdown>
     </div>
 
-    <div class='avatar w-80 m-10'>
-      <img class='rounded-full' src='https://placeimg.com/192/192/people' />
+    <div class="avatar w-80 m-10">
+      <img class="rounded-full" src={avatar} />
     </div>
   </div>
+
+  <div class="absolute bottom-0 inset-x-0 z-0 fill-base-300">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
+      ><path
+        fill="current"
+        fill-opacity="1"
+        d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+      ></path>
+    </svg>
+  </div>
 </div>
+
+<style lang="less">
+  .about-container {
+    @apply text-base;
+
+    ul {
+      @apply list-disc list-inside;
+
+      li {
+        @apply mb-4;
+      }
+    }
+
+    a {
+      @apply link link-primary;
+    }
+  }
+</style>
