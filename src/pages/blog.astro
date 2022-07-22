@@ -1,0 +1,25 @@
+---
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+
+const posts = await Astro.glob("../blog/*.md");
+---
+
+<Layout title="Welcome to Astro.">
+  <Header />
+  <section class="hero min-h-screen bg-base-200 relative" id="blog">
+    <div class="hero-content flex flex-col gap-8">
+      <h2 class="text-5xl mb-4">About me 🙋‍♂️</h2>
+
+      {posts.length > 0 ? (
+        <ul>
+          {posts.map((post) => (
+            <li>{post.frontmatter.title}</li>
+          ))}
+        </ul>
+      ) : (
+        <p>Nothing to see here ...</p>
+      )}
+    </div>
+  </section>
+</Layout>

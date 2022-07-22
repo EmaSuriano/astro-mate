@@ -11,6 +11,11 @@ WIP.
 
 ## [✨ Demo](https://astro-mate.netlify.app/)
 
+## Project Overview 👨‍💻
+
+- [Astro](https://astro.build/) with Typescript support
+- Icons powered by [Iconify](https://iconify.design/)
+
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
 ## 🚀 Project Structure

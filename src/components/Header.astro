@@ -1,7 +1,6 @@
 ---
 import { Icon } from "astro-icon";
 
-const icon = "";
 const sections = [
   {
     label: "About me",
@@ -18,12 +17,14 @@ const sections = [
 ];
 ---
 
-<div class="navbar absolute top-0 inset-x-0 z-10 text-primary-content">
+<div
+  class="navbar absolute top-0 inset-x-0 z-10 text-primary-content bg-primary"
+>
   <div class="flex-1">
-    <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
+    <a class="btn btn-ghost normal-case text-xl" href="/">daisyUI</a>
   </div>
   <div class="flex-none">
-    <ul class="menu menu-horizontal p-0 space-x-1">
+    <ul class="menu menu-horizontal p-0 space-x-1" data-choose-theme>
       {sections.map((section) => (
         <li>
           <a href={section.href}>{section.label}</a>
@@ -31,9 +32,15 @@ const sections = [
       ))}
 
       <li>
-        <button data-toggle-theme="light,dark" data-act-class="light">
-          <Icon pack="ri" name="sun-line" class="w-6 h-6 toggle-light" />
-          <Icon pack="ri" name="moon-line" class="w-6 h-6 toggle-dark" />
+        <button
+          data-set-theme="light"
+          data-act-class="light"
+          class="toggle-light"
+        >
+          <Icon pack="ri" name="sun-line" class="w-6 h-6" />
+        </button>
+        <button data-set-theme="dark" data-act-class="dark" class="toggle-dark">
+          <Icon pack="ri" name="moon-line" class="w-6 h-6" />
         </button>
       </li>
     </ul>
@@ -41,13 +48,13 @@ const sections = [
 </div>
 
 <style>
-  .toggle-dark,
-  .light .toggle-light {
-    display: none;
+  .dark.toggle-light,
+  .light.toggle-dark {
+    display: block;
   }
 
-  .light,
-  .light .toggle-dark {
-    display: block;
+  .dark.toggle-dark,
+  .light.toggle-light {
+    display: none;
   }
 </style>
