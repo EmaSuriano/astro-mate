@@ -14,7 +14,8 @@ WIP.
 ## Project Overview 👨‍💻
 
 - [Astro](https://astro.build/) with Typescript support
-- Icons powered by [Iconify](https://iconify.design/)
+- Icons from [Iconify](https://iconify.design/)
+- [Daisy UI](https://daisyui.com/) as the component library (powered by [Tailwind](https://tailwindcss.com/))
 
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
