@@ -1,0 +1,19 @@
+---
+import Icon from "astro-icon";
+import { getIconFromUrl } from "../helpers/getIconFromUrl";
+import { Link } from "../types";
+
+type Props = Link & {
+  size: number;
+};
+
+const { href, label, size } = Astro.props;
+
+const icon = getIconFromUrl(href);
+---
+
+<div class="tooltip tooltip-bottom" data-tip={label}>
+  <a class="btn btn-link btn-circle" href={href}>
+    <Icon name={icon} class={`w-${size} h-${size}`} />
+  </a>
+</div>

@@ -1,0 +1,14 @@
+---
+import { Link } from "../types";
+
+type Props = Link;
+
+const { href, label } = Astro.props;
+---
+
+<h2 class="text-4xl">
+  <a class="link  link-hover" href={href}>
+    <span class="link-accent">#</span>
+    {label}
+  </a>
+</h2>

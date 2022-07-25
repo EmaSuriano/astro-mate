@@ -5,28 +5,20 @@ const author = {
 };
 ---
 
-<div class="relative z-0">
-  <div class="fill-secondary absolute bottom-0 inset-x-0">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
-      ><path
-        fill="current"
-        fill-opacity="1"
-        d="M0,160L48,165.3C96,171,192,181,288,202.7C384,224,480,256,576,272C672,288,768,288,864,261.3C960,235,1056,181,1152,165.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-      ></path>
-    </svg>
-  </div>
-</div>
-
 <div
-  class="navbar z-10 text-primary-content bg-secondary flex flex-row justify-between"
+  class="navbar text-primary-content bg-secondary flex flex-row justify-between"
 >
   <span>
     <p class="text-base">Mate Portfolio - Powered by</p>
-    <a class="link link-primary ml-1" href="https://astro.build">Astro</a>
+    <a class="link link-hover link-primary ml-1" href="https://astro.build"
+      >Astro
+    </a>
   </span>
 
   <span>
     <p>Developed by</p>
-    <a href={author.href} class="link link-primary ml-1">{author.label}</a>
+    <a href={author.href} class="link link-hover link-primary ml-1"
+      >{author.label}
+    </a>
   </span>
 </div>

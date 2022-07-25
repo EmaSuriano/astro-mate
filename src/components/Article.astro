@@ -1,0 +1,15 @@
+---
+import { Markdown } from "astro/components";
+
+type Props = {
+  content?: string;
+};
+
+const { content } = Astro.props;
+---
+
+<article class="prose prose-slate prose-a:text-secondary prose-a:link-hover">
+  <Markdown content={content}>
+
+  </Markdown>
+</article>
