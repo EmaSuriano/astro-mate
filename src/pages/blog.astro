@@ -1,25 +1,27 @@
 ---
+import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import Title from "../components/Title.astro";
+import Wave from "../components/Wave.astro";
 import Layout from "../layouts/Layout.astro";
 
 const posts = await Astro.glob("../blog/*.md");
+
+const avatar = "https://placeimg.com/192/192/people";
 ---
 
 <Layout title="Welcome to Astro.">
   <Header />
-  <section class="hero min-h-screen bg-base-200 relative" id="blog">
-    <div class="hero-content flex flex-col gap-8">
-      <h2 class="text-5xl mb-4">About me 🙋‍♂️</h2>
+  <section class="hero min-h-screen bg-base-200 relative" id="about">
+    <Wave position="top" fill="fill-primary" />
+    <Wave position="bottom" fill="fill-secondary" />
 
-      {posts.length > 0 ? (
-        <ul>
-          {posts.map((post) => (
-            <li>{post.frontmatter.title}</li>
-          ))}
-        </ul>
-      ) : (
-        <p>Nothing to see here ...</p>
-      )}
+    <div class="hero-content flex-col lg:flex-row m-4 max-w-screen-xl">
+      <div class="flex flex-col gap-8">
+        <h2 class="text-4xl text-left">asdasd</h2>
+      </div>
     </div>
   </section>
+
+  <Footer />
 </Layout>

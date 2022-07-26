@@ -1,24 +1,18 @@
 ---
 import { Image } from "@astrojs/image/components";
-import Icon from "astro-icon";
-import { getIconFromUrl } from "../helpers/getIconFromUrl";
 import { Project } from "../types";
+import IconLink from "./IconLink.astro";
 
 type Props = Project;
 
 const { cover, name, date, links, description } = Astro.props;
-
-const linksWithIcon = links.map((link) => ({
-  ...link,
-  icon: getIconFromUrl(link.href),
-}));
 ---
 
 <div
-  class="card card-compact bg-base-100 shadow-xl transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-10 duration-200 hover:shadow-2xl"
+  class="card bg-base-100 shadow-xl transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-10 duration-200 hover:shadow-2xl"
 >
   <figure class="relative">
-    <Image src={cover} alt={name} format="png" width={900} height={400} />
+    <Image src={cover} alt={name} format="png" width={900} height={500} />
     <h2 class="badge absolute top-3 right-3">
       {date.getFullYear()}
     </h2>
@@ -26,14 +20,8 @@ const linksWithIcon = links.map((link) => ({
   <div class="card-body">
     <div class="flex justify-between">
       <h2 class="card-title">{name}</h2>
-      <div class="flex justify-end gap-2">
-        {linksWithIcon.map((link) => (
-          <div class="tooltip tooltip-bottom" data-tip={link.label}>
-            <a class="btn btn-link btn-circle w-6" href={link.href}>
-              <Icon name={link.icon} />
-            </a>
-          </div>
-        ))}
+      <div class="flex justify-end">
+        {links.map((link) => <IconLink {...link} size={6} />)}
       </div>
     </div>
 

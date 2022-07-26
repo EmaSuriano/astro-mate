@@ -33,13 +33,17 @@ const sections = [
 
       <li>
         <button
-          data-set-theme="light"
-          data-act-class="light"
+          data-set-theme="dark"
+          data-act-class="toggle-light"
           class="toggle-light"
         >
           <Icon name="ri:sun-line" class="w-6 h-6" />
         </button>
-        <button data-set-theme="dark" data-act-class="dark" class="toggle-dark">
+        <button
+          data-set-theme="light"
+          data-act-class="toggle-dark"
+          class="toggle-dark"
+        >
           <Icon name="ri:moon-line" class="w-6 h-6" />
         </button>
       </li>
@@ -47,14 +51,14 @@ const sections = [
   </div>
 </div>
 
-<style>
-  .dark.toggle-light,
-  .light.toggle-dark {
+<style lang="scss" is:global>
+  html[data-theme="light"] .toggle-light,
+  html[data-theme="dark"] .toggle-dark {
     display: block;
   }
 
-  .dark.toggle-dark,
-  .light.toggle-light {
+  html[data-theme="dark"] .toggle-light,
+  html[data-theme="light"] .toggle-dark {
     display: none;
   }
 </style>
