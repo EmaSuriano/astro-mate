@@ -119,10 +119,10 @@
     svelte "^3.24.0"
     svelte2tsx "^0.5.5"
 
-"@astrojs/tailwind@^0.2.4":
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/@astrojs/tailwind/-/tailwind-0.2.4.tgz#6d772acc90003fb5567408c29fe22c5894b4217f"
-  integrity sha512-rDpUHXOUmQkReIvaTBgxYsrsz8Hgt93Tbw9gu7Bkf7Uys6cBCnnQgFpPtdgrqyLNZ0qo9vAxWHSyBSi6jAs1yA==
+"@astrojs/tailwind@^0.2.5":
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/@astrojs/tailwind/-/tailwind-0.2.5.tgz#4f54b0e9a8d6c61e15900058a671336ce603028f"
+  integrity sha512-VbqDVNn/Geb4p0WjjnjBs8staZgubXU16elpxqIwD4y/E2nq585/HWOJt6eK+MifDqeE/C2mGMNK+GLwZW6ylg==
   dependencies:
     "@proload/core" "^0.3.2"
     autoprefixer "^10.4.7"
