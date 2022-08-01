@@ -23,10 +23,10 @@
   resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-0.19.0.tgz#ea25fea3ba59ce7734c2bcc65a5fd1e372329943"
   integrity sha512-8nvyxZTfCXLyRmYfTttpJT6EPhfBRg0/q4J/Jj3/pNPLzp+vs05ZdktsY6QxAREaOMAnNEtSqcrB4S5DsXOfRg==
 
-"@astrojs/image@^0.1.3":
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/@astrojs/image/-/image-0.1.3.tgz#88496720f3854c93e75cdb8e5dc21e950b0da4a8"
-  integrity sha512-IGFldFUAktz9gffzd3lJvhBeCcNFMyeUfYroE8FdW1+6P9Z3r/MbmkVztS2hYDqeAK1TbkrIRgZz7RUSrTopFA==
+"@astrojs/image@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@astrojs/image/-/image-0.3.0.tgz#2bb85d9b442c49a5bbc6e6a801f3b19d80f03d13"
+  integrity sha512-aSz2kC24Zdi2id5mFh02CPCNUsgNsCG+ftHPPdl3TBI1vIHsoKLwU6fF7RY84V3Frp3Ww+jjUIcJeNWS9L6SaQ==
   dependencies:
     etag "^1.8.1"
     image-size "^1.0.1"
@@ -34,6 +34,7 @@
     mrmime "^1.0.0"
     sharp "^0.30.6"
     slash "^4.0.0"
+    tiny-glob "^0.2.9"
 
 "@astrojs/language-server@^0.13.4":
   version "0.13.4"
