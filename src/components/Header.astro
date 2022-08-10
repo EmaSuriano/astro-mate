@@ -1,17 +1,17 @@
 ---
 import { Icon } from "astro-icon";
-import { Link } from "../types";
+import type { Config, Link } from "../types";
 
-type Props = {
+type Props = Pick<Config, "name"> & {
   sections: Link[];
 };
 
-const { sections } = Astro.props as Props;
+const { sections, name } = Astro.props as Props;
 ---
 
 <div class="navbar top-0 inset-x-0 z-10 text-primary-content bg-primary -mb-1">
   <div class="flex-1">
-    <a class="btn btn-ghost normal-case text-xl" href="/">daisyUI</a>
+    <a class="btn btn-ghost normal-case text-xl" href="/">{name}</a>
   </div>
   <div class="flex-none">
     <ul class="menu menu-horizontal p-0 space-x-1" data-choose-theme>

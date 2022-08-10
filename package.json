@@ -6,6 +6,7 @@
     "update-validator": "ts-to-zod src/types.ts src/validator.ts",
     "dev": "astro dev",
     "start": "astro dev",
+    "check-types": "astro check && tsc --noEmit",
     "build": "astro build",
     "preview": "astro preview"
   },

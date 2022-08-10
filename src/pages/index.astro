@@ -20,7 +20,7 @@ const sections = getHeaderSections(config);
 ---
 
 <Layout title="Welcome to Astro.">
-  <Header sections={sections} />
+  <Header sections={sections} name={config.name} />
   <Landing name={config.name} roles={config.roles} social={config.social} />
   <About avatar={config.avatar} aboutMe={config.aboutMe} />
   

@@ -1,7 +1,7 @@
 ---
 import Title from "../components/Title.astro";
 import Wave from "../components/Wave.astro";
-import { Config } from "../types";
+import type { Config } from "../types";
 import { articleListSchema, articleSchema } from "../validator";
 
 type Props = Required<Pick<Config, "devToUser">>;

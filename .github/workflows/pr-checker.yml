@@ -22,6 +22,6 @@ jobs:
 
       - run: yarn install --frozen-lockfile
 
-      - run: yarn build
+      - run: yarn check-types
 
-      - run: yarn tsc --noEmit
+      - run: yarn build

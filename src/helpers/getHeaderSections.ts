@@ -1,4 +1,4 @@
-import { Config, Link } from "../types";
+import type { Config, Link } from "../types";
 
 export const getHeaderSections = ({ projects, devToUser }: Config): Link[] => {
   const sections = [
