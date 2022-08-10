@@ -1,70 +1,18 @@
 ---
-import astroCover from "../assets/astro-hero.png";
-import daisyCover from "../assets/daisy-ui-hero.png";
-import tailwindCover from "../assets/tailwind-hero.png";
 import Title from "../components/Title.astro";
 import Project from "../components/Project.astro";
 import Wave from "../components/Wave.astro";
+import { Config } from "../types";
 
-const projects = [
-  {
-    name: "Astro",
-    date: new Date(2021, 3, 14, 3),
-    description:
-      "Astro is a new kind of static site builder for the modern web. Powerful developer experience meets lightweight output.",
-    cover: astroCover,
-    links: [
-      { label: "Homepage", href: "https://astro.build/", icon: "earth-line" },
-      {
-        label: "Repository",
-        href: "https://github.com/withastro/astro",
-        icon: "github-line",
-      },
-    ],
-  },
-  {
-    name: "DaisyUI",
-    date: new Date(2020, 12, 6),
-    description:
-      "The most popular, free and open-source Tailwind CSS component library",
-    cover: daisyCover,
-    links: [
-      {
-        label: "Homepage",
-        href: "https://daisyui.com/",
-        icon: "earth-line",
-      },
-      {
-        label: "Repository",
-        href: "https://bitbucket.com/saadeghi/daisyui",
-        icon: "github-line",
-      },
-    ],
-  },
-  {
-    name: "Tailwind",
-    date: new Date(2016, 7, 16),
-    description:
-      "Rapidly build modern websites without ever leaving your HTML.",
-    cover: tailwindCover,
-    links: [
-      {
-        label: "Homepage",
-        href: "https://tailwindcss.com/",
-      },
-      {
-        label: "Repository",
-        href: "https://github.com/tailwindlabs/tailwindcss",
-      },
-    ],
-  },
-];
+type Props = Pick<Config, "projects">;
+
+const { projects } = Astro.props as Props;
 ---
 
-<section class="hero min-h-screen bg-base-300 relative" id="projects">
-  <Wave position="bottom" fill="fill-base-200" />
+<Wave direction="bottom" fill="fill-base-300" />
 
-  <div class="hero-content max-w-screen-xl m-4">
+<section class="hero min-h-screen bg-base-300 relative" id="projects">
+  <div class="hero-content max-w-screen-xl m-4 z-10">
     <div class="flex flex-col gap-8">
       <Title href="#project" label="Projects 💻" />
 

@@ -3,12 +3,12 @@ export type Props = {
   words: string[];
 };
 
-const { words } = Astro.props;
+const { words } = Astro.props as Props;
 
-const flip = 'flip' + words.length;
+const flip = "flip" + words.length;
 ---
 
-<div class='text-loop'>
+<div class="text-loop">
   <ul class={flip}>
     {words.map((word) => <li>{word}</li>)}
   </ul>

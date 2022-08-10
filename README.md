@@ -16,6 +16,9 @@ WIP.
 - [Astro](https://astro.build/) with Typescript support
 - Icons from [Iconify](https://iconify.design/)
 - [Daisy UI](https://daisyui.com/) as the component library (powered by [Tailwind](https://tailwindcss.com/))
+- [Github Gist](https://gist.github.com/) as CMS for simplicity and transparency
+- [DevTo](https://dev.to/) API Integration
+- Schema validation with [Zod](https://github.com/colinhacks/zod) and automatic schema generation [ts-to-zod](https://github.com/fabien0102/ts-to-zod)
 
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
@@ -45,12 +48,12 @@ Any static assets, like images, can be placed in the `public/` directory.
 
 All commands are run from the root of the project, from a terminal:
 
-| Command           | Action                                       |
-| :---------------- | :------------------------------------------- |
-| `npm install`     | Installs dependencies                        |
-| `npm run dev`     | Starts local dev server at `localhost:3000`  |
-| `npm run build`   | Build your production site to `./dist/`      |
-| `npm run preview` | Preview your build locally, before deploying |
+| Command        | Action                                       |
+| :------------- | :------------------------------------------- |
+| `yarn`         | Installs dependencies                        |
+| `yarn dev`     | Starts local dev server at `localhost:3000`  |
+| `yarn build`   | Build your production site to `./dist/`      |
+| `yarn preview` | Preview your build locally, before deploying |
 
 ## 👀 Want to learn more?
 

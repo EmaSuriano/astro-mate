@@ -2,10 +2,10 @@
 import { Markdown } from "astro/components";
 
 type Props = {
-  content?: string;
+  content: string;
 };
 
-const { content } = Astro.props;
+const { content } = Astro.props as Props;
 ---
 
 <article class="prose prose-slate prose-a:text-secondary prose-a:link-hover">

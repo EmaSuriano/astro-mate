@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "update-validator": "ts-to-zod src/types.ts src/validator.ts",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
@@ -21,7 +22,8 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "sass": "^1.53.0",
-    "tailwindcss": "^3.1.6"
+    "tailwindcss": "^3.1.6",
+    "ts-to-zod": "^1.12.0"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.4",

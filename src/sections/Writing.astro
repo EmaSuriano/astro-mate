@@ -1,17 +1,24 @@
 ---
 import Title from "../components/Title.astro";
 import Wave from "../components/Wave.astro";
+import { Config } from "../types";
+import { articleListSchema, articleSchema } from "../validator";
 
-const username = "emasuriano";
-const articles = await fetch(
-  `https://dev.to/api/articles?username=${username}&per_page=6`
-).then((res) => res.json());
+type Props = Required<Pick<Config, "devToUser">>;
+
+const { devToUser } = Astro.props as Props;
+
+const url = `https://dev.to/api/articles?username=${devToUser}&per_page=6`;
+
+const articles = await fetch(url)
+  .then((res) => res.json())
+  .then(articleListSchema.parse);
 ---
 
-<section class="relative hero min-h-screen bg-base-200" id="writing">
-  <Wave position="bottom" fill="fill-secondary" />
+<Wave direction="bottom" fill="fill-base-200" />
 
-  <div class="hero-content max-w-screen-xl">
+<section class="hero min-h-screen bg-base-200" id="writing">
+  <div class="hero-content max-w-screen-xl z-10">
     <div class="flex flex-col gap-8">
       <Title href="#writing" label="Writing ✍️" />
 

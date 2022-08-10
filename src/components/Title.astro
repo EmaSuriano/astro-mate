@@ -3,7 +3,7 @@ import { Link } from "../types";
 
 type Props = Link;
 
-const { href, label } = Astro.props;
+const { href, label } = Astro.props as Props;
 ---
 
 <h2 class="text-4xl">

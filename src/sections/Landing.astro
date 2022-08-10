@@ -1,49 +1,33 @@
 ---
-import { Icon } from "astro-icon";
 import IconLink from "../components/IconLink.astro";
 import ScrollIcon from "../components/ScrollIcon.astro";
 import TextLoop from "../components/TextLoop.astro";
 import Wave from "../components/Wave.astro";
+import { Config } from "../types";
 
-const name = "Mate";
-const roles = [
-  "Contentful CMS 🔧",
-  "Responsive 📱",
-  "Quick setup 🚀",
-  "PWA ✨",
-];
-const socialLinks = [
-  {
-    label: "Twitter",
-    href: "https://twitter.com/emasuriano",
-  },
-  {
-    label: "Github",
-    href: "https://github.com/EmaSuriano/astro-mate",
-  },
-];
-const deterministic = false;
+type Props = Pick<Config, "name" | "roles" | "social">;
 
-const words = roles.sort(() => (deterministic ? 1 : Math.random()));
+const { name, roles, social } = Astro.props as Props;
+
+const words = roles.sort(() => Math.random());
 ---
 
-<section class="hero min-h-screen bg-base-100 relative" id="home">
-  <Wave position="top" fill="fill-primary" />
-  <Wave position="bottom" fill="fill-base-200" />
+<Wave direction="top" fill="fill-primary" key={1} />
 
-  <div class="hero-content text-center text-primary">
+<section class="hero min-h-screen bg-base-100" id="home">
+  <div class="hero-content text-center text-primary z-10">
     <div class="max-w-md flex flex-col space-y-8">
       <h1 class="text-5xl font-bold">Hello, I'm {name}!</h1>
       <h2 class="text-4xl font-bold">
         <TextLoop words={words} />
       </h2>
       <div class="flex justify-center gap-4">
-        {socialLinks.map((link) => <IconLink {...link} size={10} />)}
+        {social.map((link) => <IconLink {...link} size={10} />)}
       </div>
     </div>
-  </div>
 
-  <div class="absolute bottom-0 inset-x-0 mb-14">
-    <ScrollIcon href="#about" />
+    <div class="absolute bottom-0 inset-x-0 mb-14">
+      <ScrollIcon href="#about" />
+    </div>
   </div>
 </section>

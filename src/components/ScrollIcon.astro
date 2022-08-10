@@ -3,10 +3,10 @@ type Props = {
   href: string;
 };
 
-const { href } = Astro.props;
+const { href } = Astro.props as Props;
 ---
 
-<a href={href} aria-label='Scroll to content' class='icon-scroll text-primary'
+<a href={href} aria-label="Scroll to content" class="icon-scroll text-primary"
 ></a>
 
 <style>
@@ -27,7 +27,7 @@ const { href } = Astro.props;
   }
 
   .icon-scroll:before {
-    content: '';
+    content: "";
     width: 6px;
     height: 6px;
     background: black;

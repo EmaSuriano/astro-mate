@@ -1,25 +1,15 @@
 ---
 import { Icon } from "astro-icon";
+import { Link } from "../types";
 
-const sections = [
-  {
-    label: "About me",
-    href: "#about",
-  },
-  {
-    label: "Projects",
-    href: "#projects",
-  },
-  {
-    label: "Writing",
-    href: "#writing",
-  },
-];
+type Props = {
+  sections: Link[];
+};
+
+const { sections } = Astro.props as Props;
 ---
 
-<div
-  class="navbar sticky top-0 inset-x-0 z-10 text-primary-content bg-primary -mb-1"
->
+<div class="navbar top-0 inset-x-0 z-10 text-primary-content bg-primary -mb-1">
   <div class="flex-1">
     <a class="btn btn-ghost normal-case text-xl" href="/">daisyUI</a>
   </div>

@@ -5,7 +5,7 @@ import IconLink from "./IconLink.astro";
 
 type Props = Project;
 
-const { cover, name, date, links, description } = Astro.props;
+const { cover, name, yearReleased, links, description } = Astro.props as Props;
 ---
 
 <div
@@ -14,7 +14,7 @@ const { cover, name, date, links, description } = Astro.props;
   <figure class="relative">
     <Image src={cover} alt={name} format="png" width={900} height={500} />
     <h2 class="badge absolute top-3 right-3">
-      {date.getFullYear()}
+      {yearReleased}
     </h2>
   </figure>
   <div class="card-body">

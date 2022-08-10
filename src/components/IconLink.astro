@@ -7,7 +7,7 @@ type Props = Link & {
   size: number;
 };
 
-const { href, label, size } = Astro.props;
+const { href, label, size } = Astro.props as Props;
 
 const icon = getIconFromUrl(href);
 ---

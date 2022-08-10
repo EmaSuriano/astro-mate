@@ -7,18 +7,20 @@ const POSITION_CLASS = {
 };
 
 type Props = {
-  position: keyof typeof POSITION_CLASS;
+  direction: keyof typeof POSITION_CLASS;
   fill: string;
   key?: number;
 };
 
-const { fill, position, key } = Astro.props;
+const { fill, direction, key } = Astro.props as Props;
 
 const wavePath = generateWave(key);
 ---
 
-<div class={`absolute ${POSITION_CLASS[position]} inset-x-0 ${fill}`}>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
-    ><path fill="current" fill-opacity="1" d={wavePath}></path>
-  </svg>
+<div class="relative z-0">
+  <div class={`absolute ${POSITION_CLASS[direction]} inset-x-0 ${fill}`}>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"
+      ><path fill="current" fill-opacity="1" d={wavePath}></path>
+    </svg>
+  </div>
 </div>
