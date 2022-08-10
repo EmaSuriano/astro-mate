@@ -1,9 +1,5 @@
 # Astro Theme: Mate 🧉
 
-WIP.
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/EmaSuriano/astro-mate)
-
 [![Build](https://github.com/EmaSuriano/astro-mate/actions/workflows/master.yml/badge.svg?branch=master)](https://github.com/EmaSuriano/astro-mate/actions/workflows/master.yml)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/048d0e6b-f5c6-437d-bdca-2fd7adf66a7a/deploy-status)](https://app.netlify.com/sites/astro-mate/deploys)
 
