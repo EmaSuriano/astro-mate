@@ -1,10 +1,7 @@
 ---
 import Wave from "./Wave.astro";
 
-const author = {
-  label: "Ema Suriano",
-  href: "https://emasuriano.com",
-};
+const currentYear = new Date().getFullYear();
 ---
 
 <Wave direction="bottom" fill="fill-secondary" />
@@ -14,13 +11,15 @@ const author = {
 >
   <span class="flex ">
     <p>Mate Portfolio - Powered by</p>
-    <a class="link link-hover link-primary" href="https://astro.build">Astro</a>
+    <a class="link link-hover link-primary" href="https://netlify.com"
+      >Netlify
+    </a>
   </span>
 
-  <span class="flex">
-    <p>Developed by</p>
-    <a href={author.href} class="link link-hover link-primary"
-      >{author.label}
-    </a>
+  <span class="flex ">
+    <p>Built with</p>
+    <a class="link link-hover link-primary" href="https://astro.build">Astro</a>
+
+    <p>- {currentYear}</p>
   </span>
 </div>
