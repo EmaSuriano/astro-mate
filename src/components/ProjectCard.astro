@@ -1,6 +1,4 @@
 ---
-// @ts-expect-error check how to solve the type issue ...
-import { Image } from "@astrojs/image/components";
 import type { Project } from "../types";
 import IconLink from "./IconLink.astro";
 
@@ -15,13 +13,7 @@ const { project } = Astro.props as Props;
   class="card bg-base-100 shadow-xl transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-10 duration-200 hover:shadow-2xl"
 >
   <figure class="relative">
-    <Image
-      src={project.cover}
-      alt={`Cover of ${project.name}`}
-      format="png"
-      width={900}
-      height={500}
-    />
+    <img src={project.cover} alt={`Cover of ${project.name}`} />
     <h2 class="badge absolute top-3 right-3">
       {project.yearReleased}
     </h2>
