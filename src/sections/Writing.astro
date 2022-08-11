@@ -1,8 +1,9 @@
 ---
+import ArticleCard from "../components/ArticleCard.astro";
 import Title from "../components/Title.astro";
 import Wave from "../components/Wave.astro";
 import type { Config } from "../types";
-import { articleListSchema, articleSchema } from "../validator";
+import { articleListSchema } from "../validator";
 
 type Props = Required<Pick<Config, "devToUser">>;
 
@@ -25,31 +26,8 @@ const articles = await fetch(url)
       <div
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-4 lg:gap-8"
       >
-        {articles.map((article) => (
-          <a
-            class="card bg-base-100 shadow-xl link link-primary link-card transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-10 duration-200 hover:shadow-2xl"
-            href={article.url}
-          >
-            <div class="card-body text-base-content">
-              <h2 class="card-title">{article.title}</h2>
-              <p style="">{article.description}</p>
-            </div>
-            <figure>
-              <img src={article.social_image} alt={article.title} />
-            </figure>
-          </a>
-        ))}
+        {articles.map((article) => <ArticleCard article={article} />)}
       </div>
     </div>
   </div>
 </section>
-
-<style>
-  .link-card {
-    text-decoration-line: none;
-  }
-
-  .link-card:hover .card-title {
-    text-decoration-line: underline;
-  }
-</style>
