@@ -1,0 +1,32 @@
+---
+import type { Article } from "../types";
+
+type Props = {
+  article: Article;
+};
+
+const { article } = Astro.props as Props;
+---
+
+<a
+  class="card bg-base-100 shadow-xl link link-primary link-card transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-10 duration-200 hover:shadow-2xl"
+  href={article.url}
+>
+  <div class="card-body text-base-content">
+    <h2 class="card-title">{article.title}</h2>
+    <p style="">{article.description}</p>
+  </div>
+  <figure>
+    <img src={article.social_image} alt={article.title} />
+  </figure>
+</a>
+
+<style>
+  .link-card {
+    text-decoration-line: none;
+  }
+
+  .link-card:hover .card-title {
+    text-decoration-line: underline;
+  }
+</style>

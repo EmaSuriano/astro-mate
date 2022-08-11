@@ -1,30 +1,31 @@
 ---
-import { Image } from "@astrojs/image/components";
 import type { Project } from "../types";
 import IconLink from "./IconLink.astro";
 
-type Props = Project;
+type Props = {
+  project: Project;
+};
 
-const { cover, name, yearReleased, links, description } = Astro.props as Props;
+const { project } = Astro.props as Props;
 ---
 
 <div
   class="card bg-base-100 shadow-xl transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-10 duration-200 hover:shadow-2xl"
 >
   <figure class="relative">
-    <Image src={cover} alt={name} format="png" width={900} height={500} />
+    <img src={project.cover} alt={`Cover of ${project.name}`} />
     <h2 class="badge absolute top-3 right-3">
-      {yearReleased}
+      {project.yearReleased}
     </h2>
   </figure>
   <div class="card-body">
     <div class="flex justify-between">
-      <h2 class="card-title">{name}</h2>
+      <h2 class="card-title">{project.name}</h2>
       <div class="flex justify-end">
-        {links.map((link) => <IconLink {...link} size={6} />)}
+        {project.links.map((link) => <IconLink {...link} size={6} />)}
       </div>
     </div>
 
-    <p>{description}</p>
+    <p>{project.description}</p>
   </div>
 </div>
