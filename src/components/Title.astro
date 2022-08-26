@@ -29,7 +29,8 @@ const { href, label } = Astro.props as Props;
       linear-gradient(#f2c, #f2c);
   }
 
-  .link-underline:hover {
+  .link-underline:hover,
+  .link-underline:focus {
     background-size: 100% 4px;
     background-position: 0 100%;
   }

@@ -2,6 +2,7 @@
 import { z } from "zod";
 
 export const linkSchema = z.object({
+  icon: z.string(),
   label: z.string(),
   href: z.string().url(),
 });
@@ -10,8 +11,8 @@ export const projectSchema = z.object({
   name: z.string(),
   yearReleased: z.number(),
   description: z.string(),
-  cover: z.string(),
-  links: z.array(linkSchema),
+  cover: z.string().url(),
+  href: z.string().url(),
 });
 
 export const articleSchema = z.object({

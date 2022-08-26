@@ -1,5 +1,5 @@
 ---
-import IconLink from "../components/IconLink.astro";
+import Icon from "astro-icon";
 import ScrollIcon from "../components/ScrollIcon.astro";
 import TextLoop from "../components/TextLoop.astro";
 import Wave from "../components/Wave.astro";
@@ -14,7 +14,7 @@ const words = roles.sort(() => Math.random());
 
 <Wave direction="top" fill="fill-primary" key={1} />
 
-<section class="hero min-h-screen bg-base-100" id="home">
+<section class="hero min-h-screen bg-base-100 m-1" id="home">
   <div class="hero-content text-center text-primary z-10">
     <div class="max-w-md flex flex-col space-y-8">
       <h1 class="text-5xl font-bold">Hello, I'm {name}!</h1>
@@ -22,7 +22,19 @@ const words = roles.sort(() => Math.random());
         <TextLoop words={words} />
       </h2>
       <div class="flex justify-center gap-4">
-        {social.map((link) => <IconLink {...link} size={10} />)}
+        {
+          social.map((link) => (
+            <div class="tooltip tooltip-bottom" data-tip={link.label}>
+              <a
+                class="btn btn-link btn-primary btn-circle"
+                href={link.href}
+                aria-label={link.label}
+              >
+                <Icon name={link.icon} class="w-10 h-10" />
+              </a>
+            </div>
+          ))
+        }
       </div>
     </div>
 

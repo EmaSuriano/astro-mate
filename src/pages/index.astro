@@ -23,13 +23,17 @@ const sections = getHeaderSections(config);
   <Header sections={sections} name={config.name} />
   <Landing name={config.name} roles={config.roles} social={config.social} />
   <About avatar={config.avatar} aboutMe={config.aboutMe} />
-  
-  {sections.find((section) => section.href === "#projects") && (
-    <Projects projects={config.projects} />
-  )}
 
-  {sections.find((section) => section.href === "#writing") && (
-    <Writing devToUser={config.devToUser!} />
-  )}
+  {
+    sections.find((section) => section.href === "#projects") && (
+      <Projects projects={config.projects} />
+    )
+  }
+
+  {
+    sections.find((section) => section.href === "#writing") && (
+      <Writing devToUser={config.devToUser!} />
+    )
+  }
   <Footer />
 </Layout>

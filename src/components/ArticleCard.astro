@@ -11,6 +11,7 @@ const { article } = Astro.props as Props;
 <a
   class="card bg-base-100 shadow-xl link link-primary link-card transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-10 duration-200 hover:shadow-2xl"
   href={article.url}
+  target="_blank"
 >
   <div class="card-body text-base-content">
     <h2 class="card-title">{article.title}</h2>

@@ -14,12 +14,14 @@ const { sections, name } = Astro.props as Props;
     <a class="btn btn-ghost normal-case text-xl" href="/">{name}</a>
   </div>
   <div class="flex-none">
-    <ul class="menu menu-horizontal p-0 space-x-1" data-choose-theme>
-      {sections.map((section) => (
-        <li class="hidden sm:inline">
-          <a href={section.href}>{section.label}</a>
-        </li>
-      ))}
+    <ul class="menu menu-horizontal p-0 space-x-1">
+      {
+        sections.map((section) => (
+          <li class="hidden sm:inline">
+            <a href={section.href}>{section.label}</a>
+          </li>
+        ))
+      }
 
       <li class="inline sm:hidden">
         <a>
@@ -37,11 +39,13 @@ const { sections, name } = Astro.props as Props;
         </a>
 
         <ul class="p-2 bg-base-100 text-base-content z-10">
-          {sections.map((section) => (
-            <li>
-              <a href={section.href}>{section.label}</a>
-            </li>
-          ))}
+          {
+            sections.map((section) => (
+              <li>
+                <a href={section.href}>{section.label}</a>
+              </li>
+            ))
+          }
         </ul>
       </li>
 
@@ -50,6 +54,7 @@ const { sections, name } = Astro.props as Props;
           data-set-theme="dark"
           data-act-class="toggle-light"
           class="toggle-light"
+          aria-label="Change theme"
         >
           <Icon name="ri:sun-line" class="w-6 h-6" />
         </button>
@@ -57,6 +62,7 @@ const { sections, name } = Astro.props as Props;
           data-set-theme="light"
           data-act-class="toggle-dark"
           class="toggle-dark"
+          aria-label="Change theme"
         >
           <Icon name="ri:moon-line" class="w-6 h-6" />
         </button>

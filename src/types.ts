@@ -6,12 +6,22 @@ export type Link = {
   href: string;
 };
 
+export type SocialLink = Link & {
+  icon: string;
+};
+
 export type Project = {
   name: string;
   yearReleased: number;
   description: string;
+  /**
+   * @format url
+   */
   cover: string;
-  links: Link[];
+  /**
+   * @format url
+   */
+  href: string;
 };
 
 export type Article = {
@@ -32,7 +42,7 @@ export type ArticleList = Article[];
 export type Config = {
   name: string;
   roles: string[];
-  social: Link[];
+  social: SocialLink[];
   /**
    * @format url
    */
