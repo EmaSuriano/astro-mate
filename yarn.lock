@@ -3877,10 +3877,10 @@ trough@^2.0.0:
   resolved "https://registry.yarnpkg.com/trough/-/trough-2.1.0.tgz#0f7b511a4fde65a46f18477ab38849b22c554876"
   integrity sha512-AqTiAOLcj85xS7vQ8QkAV41hPDIJ71XJB4RCUrzo/1GM2CQwhkJGaf9Hgr7BOugMRpgGUrqRg/DrBDl4H40+8g==
 
-ts-to-zod@^1.12.0:
-  version "1.12.0"
-  resolved "https://registry.yarnpkg.com/ts-to-zod/-/ts-to-zod-1.12.0.tgz#d358f92c4482b4407914aee742936826571be0a9"
-  integrity sha512-SpKAGujUAp/Ydl1Ce7aNDSB290LH1z4oDIkTguZe/pgcizWm1AOlQQARQM5kHcQWaQY5ukwFF/rT8IS3pIRBbA==
+ts-to-zod@^1.13.1:
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/ts-to-zod/-/ts-to-zod-1.13.1.tgz#c48aac07f81de556d75201d7532b0f59979facce"
+  integrity sha512-C8eD8HbNHysoFPJnVu3ix6S9lugEQ5IPOGx9a4CiY5q4jDZGc+Pgi96fyPSTSmEpHYni6EFN/uzHmIvpxeFFLA==
   dependencies:
     "@oclif/command" "^1.8.6"
     "@oclif/config" "^1.17.1"
