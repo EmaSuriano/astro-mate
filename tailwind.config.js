@@ -20,7 +20,26 @@ const themes = [
 
 module.exports = {
   content: ["./src/**/*.{astro,html,svelte,vue,js,ts,jsx,tsx}"],
-  plugins: [require("@tailwindcss/typography"), require("daisyui")],
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("daisyui"),
+    require("tailwindcss-triangle-after")({
+      triangles: {
+        select: {
+          color: "currentColor",
+          direction: "up",
+          size: [100, 68],
+        },
+        next: {
+          color: "currentColor",
+          direction: "left",
+          right: "2rem",
+          top: "3rem",
+          size: 100,
+        },
+      },
+    }),
+  ],
   daisyui: {
     themes,
   },

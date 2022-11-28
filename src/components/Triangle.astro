@@ -1,0 +1,38 @@
+---
+type Props = {
+  className: string;
+  position?: "top-left" | "top-right" | "bottom-left" | "bottom-right";
+};
+
+const POSITION_CLASSNAME = {
+  "top-left": "left-0 top-0",
+  "top-right": "right-0 top-0",
+  "bottom-left": "left-0 bottom-0",
+  "bottom-right": "right-0 bottom-0",
+};
+
+const { className, position = "top-left" } = Astro.props;
+---
+
+<div
+  class={`absolute ${POSITION_CLASSNAME[position]} triangle-${position} ${className}`}
+>
+</div>
+
+<style is:global>
+  .triangle-top-left {
+    clip-path: polygon(100% 0, 0 0, 0 100%);
+  }
+
+  .triangle-top-right {
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+  }
+
+  .triangle-bottom-left {
+    clip-path: polygon(0 0, 0 100%, 100% 100%);
+  }
+
+  .triangle-bottom-right {
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+  }
+</style>

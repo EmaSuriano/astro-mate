@@ -1,7 +1,7 @@
 ---
 import Article from "../components/Article.astro";
 import Title from "../components/Title.astro";
-import Wave from "../components/Wave.astro";
+// import Wave from "../components/Wave.astro";
 import type { Config } from "../types";
 
 type Props = Pick<Config, "aboutMe" | "avatar">;
@@ -11,8 +11,7 @@ const { aboutMe, avatar } = Astro.props as Props;
 const content = await fetch(aboutMe).then((res) => res.text());
 ---
 
-<Wave direction="bottom" fill="fill-base-200" />
-
+<!-- <Wave direction="bottom" fill="fill-base-200" /> -->
 <section class="hero min-h-screen bg-base-200 relative" id="about">
   <div class="hero-content flex-col lg:flex-row m-4 max-w-screen-xl z-10">
     <div class="flex flex-col gap-8">

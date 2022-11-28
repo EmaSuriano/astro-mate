@@ -1,7 +1,7 @@
 ---
 import ArticleCard from "../components/ArticleCard.astro";
 import Title from "../components/Title.astro";
-import Wave from "../components/Wave.astro";
+// import Wave from "../components/Wave.astro";
 import type { Config } from "../types";
 import { articleListSchema } from "../validator";
 
@@ -16,8 +16,7 @@ const articles = await fetch(url)
   .then(articleListSchema.parse);
 ---
 
-<Wave direction="bottom" fill="fill-base-200" />
-
+<!-- <Wave direction="bottom" fill="fill-base-200" /> -->
 <section class="hero min-h-screen bg-base-200" id="writing">
   <div class="hero-content max-w-screen-xl z-10">
     <div class="flex flex-col gap-8">
