@@ -7,30 +7,21 @@ const { href, label } = Astro.props;
 ---
 
 <h2 class="text-4xl">
-  <a class="link-underline link-underline-black pb-1" href={href}>
+  <a class="relative pb-0.5" href={href}>
     {label}
   </a>
 </h2>
 
 <style>
-  .link-underline {
-    border-bottom-width: 0;
-    background-image: linear-gradient(transparent, transparent),
-      linear-gradient(#fff, #fff);
-    background-size: 0 4px;
-    background-position: 0 100%;
-    background-repeat: no-repeat;
-    transition: background-size 0.5s ease-in-out;
+  a::after {
+    @apply bg-secondary absolute bottom-0 left-0 inset-x-0 h-1 rounded opacity-0;
+    content: "";
+    transition: opacity 300ms, transform 300ms;
   }
 
-  .link-underline-black {
-    background-image: linear-gradient(transparent, transparent),
-      linear-gradient(#f2c, #f2c);
-  }
-
-  .link-underline:hover,
-  .link-underline:focus {
-    background-size: 100% 4px;
-    background-position: 0 100%;
+  a:hover::after,
+  a:focus::after {
+    @apply opacity-100;
+    transform: translate3d(0, 0.2em, 0);
   }
 </style>

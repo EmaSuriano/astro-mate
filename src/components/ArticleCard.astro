@@ -1,4 +1,5 @@
 ---
+import { Image } from "@astrojs/image/components";
 import type { Article } from "../types";
 
 type Props = {
@@ -18,7 +19,12 @@ const { article } = Astro.props;
     <p style="">{article.description}</p>
   </div>
   <figure>
-    <img src={article.social_image} alt={article.title} />
+    <Image
+      src={article.social_image}
+      alt={article.title}
+      height="250"
+      width="450"
+    />
   </figure>
 </a>
 

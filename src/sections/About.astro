@@ -1,4 +1,5 @@
 ---
+import { Image } from "@astrojs/image/components";
 import Article from "../components/Article.astro";
 import Title from "../components/Title.astro";
 import Triangle from "../components/Triangle.astro";
@@ -39,10 +40,12 @@ const content = await fetch(aboutMe).then((res) => res.text());
     </div>
 
     <div class="avatar w-72 m-10">
-      <img
+      <Image
         class="transition-all rounded-full ring-accent hover:ring-8 hover:scale-105"
         src={avatar}
         alt="Avatar"
+        height="400"
+        width="400"
       />
     </div>
   </div>
