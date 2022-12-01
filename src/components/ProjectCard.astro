@@ -5,11 +5,11 @@ type Props = {
   project: Project;
 };
 
-const { project } = Astro.props as Props;
+const { project } = Astro.props;
 ---
 
 <a
-  class="card bg-base-100 shadow-xl link link-primary link-card transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-10 duration-200 hover:shadow-2xl"
+  class="card bg-base-200 shadow-xl link link-primary link-card transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-10 duration-200 hover:shadow-2xl"
   href={project.href}
   target="_blank"
 >

@@ -3,21 +3,29 @@ import Icon from "astro-icon";
 import ScrollIcon from "../components/ScrollIcon.astro";
 import TextLoop from "../components/TextLoop.astro";
 import Triangle from "../components/Triangle.astro";
-// import Wave from "../components/Wave.astro";
 import type { Config } from "../types";
 
 type Props = Pick<Config, "name" | "roles" | "social">;
 
-const { name, roles, social } = Astro.props as Props;
+const { name, roles, social } = Astro.props;
 
 const words = roles.sort(() => Math.random());
 ---
 
-<!-- <Wave direction="top" fill="fill-primary" key={1} /> -->
-<section class="relative hero min-h-screen bg-base-100 m-1" id="home">
-  <Triangle className="bg-accent w-[95vw] h-[35vh]" />
-  <Triangle className="bg-secondary w-[50vw] h-[38vh]" />
-  <Triangle className="bg-primary w-[75vw] h-[25vh]" position="top-right" />
+<section class="relative hero min-h-screen" id="home">
+  <Triangle
+    className="bg-accent w-[95vw] h-[35vh] md:w-[60vw] md:h-[80vh]"
+    position="top-left"
+  />
+  <Triangle
+    className="bg-secondary w-[50vw] h-[38vh] md:w-[35vw] md:h-[80vh]"
+    position="top-left"
+  />
+  <Triangle
+    className="bg-primary w-[75vw] h-[25vh] md:w-[60vw] md:h-[35vh]"
+    position="top-right"
+  />
+  <Triangle className="bg-accent w-[100vw] h-[20vh]" position="bottom-right" />
 
   <div class="hero-content text-center text-primary z-10">
     <div class="max-w-md flex flex-col space-y-8">
@@ -46,6 +54,4 @@ const words = roles.sort(() => Math.random());
       <ScrollIcon href="#about" />
     </div>
   </div>
-
-  <Triangle className="bg-accent w-[100vw] h-[20vh]" position="bottom-right" />
 </section>

@@ -1,24 +1,26 @@
 ---
-// import Wave from "./Wave.astro";
-
 const currentYear = new Date().getFullYear();
 ---
 
-<!-- <Wave direction="bottom" fill="fill-secondary" /> -->
 <div
-  class="footer items-center justify-between p-4 bg-secondary text-secondary-content text-base text-center"
+  class="footer items-center justify-between p-4 bg-primary text-primary-content text-base text-center"
 >
   <span class="flex">
-    <p>Mate Portfolio - Powered by</p>
-    <a class="link link-hover link-primary" href="https://netlify.com"
-      >Netlify
-    </a>
+    <p>
+      Mate Portfolio - Powered by <a
+        class="link link-hover link-accent"
+        href="https://netlify.com"
+        >Netlify
+      </a>
+    </p>
   </span>
 
   <span class="flex">
-    <p>Built with</p>
-    <a class="link link-hover link-primary" href="https://astro.build">Astro</a>
-
-    <p>- {currentYear}</p>
+    <p>
+      Built with <a
+        class="link link-hover link-accent"
+        href="https://astro.build">Astro</a
+      > - {currentYear}
+    </p>
   </span>
 </div>

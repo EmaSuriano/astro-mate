@@ -1,0 +1,37 @@
+---
+import { Icon } from "astro-icon";
+---
+
+<button
+  data-set-theme="dark"
+  data-act-class="toggle-light"
+  class="toggle-light"
+  aria-label="Change theme"
+>
+  <Icon name="ri:sun-line" class="w-6 h-6" />
+</button>
+<button
+  data-set-theme="light"
+  data-act-class="toggle-dark"
+  class="toggle-dark"
+  aria-label="Change theme"
+>
+  <Icon name="ri:moon-line" class="w-6 h-6" />
+</button>
+
+<script>
+  import { themeChange } from "theme-change";
+  themeChange();
+</script>
+
+<style lang="scss" is:global>
+  html[data-theme="light"] .toggle-light,
+  html[data-theme="dark"] .toggle-dark {
+    display: block;
+  }
+
+  html[data-theme="dark"] .toggle-light,
+  html[data-theme="light"] .toggle-dark {
+    display: none;
+  }
+</style>

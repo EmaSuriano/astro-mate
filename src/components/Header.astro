@@ -1,22 +1,29 @@
 ---
-import { Icon } from "astro-icon";
-import type { Config, Link } from "../types";
+import { getSectionLink, Section } from "../helpers/sections";
+import type { Config } from "../types";
+import ThemeSwitch from "./ThemeSwitch.astro";
 
 type Props = Pick<Config, "name"> & {
-  sections: Link[];
+  sections: Section[];
 };
 
-const { sections, name } = Astro.props as Props;
+const { sections, name } = Astro.props;
+
+const sectionLinks = sections.map(getSectionLink);
 ---
 
-<div class="navbar top-0 inset-x-0 z-10 text-primary-content bg-primary -mb-1">
+<div class="navbar absolute top-0 inset-x-0 z-10 text-primary-content -mb-1">
   <div class="flex-1">
     <a class="btn btn-ghost normal-case text-xl" href="/">{name}</a>
   </div>
   <div class="flex-none">
-    <ul class="menu menu-horizontal p-0 space-x-1">
+    <ul class="menu menu-horizontal p-0 space-x-1 text-primary-content">
+      <li>
+        <ThemeSwitch />
+      </li>
+
       {
-        sections.map((section) => (
+        sectionLinks.map((section) => (
           <li class="hidden sm:inline">
             <a href={section.href}>{section.label}</a>
           </li>
@@ -40,7 +47,7 @@ const { sections, name } = Astro.props as Props;
 
         <ul class="p-2 bg-base-100 text-base-content z-10">
           {
-            sections.map((section) => (
+            sectionLinks.map((section) => (
               <li>
                 <a href={section.href}>{section.label}</a>
               </li>
@@ -48,37 +55,6 @@ const { sections, name } = Astro.props as Props;
           }
         </ul>
       </li>
-
-      <li>
-        <button
-          data-set-theme="dark"
-          data-act-class="toggle-light"
-          class="toggle-light"
-          aria-label="Change theme"
-        >
-          <Icon name="ri:sun-line" class="w-6 h-6" />
-        </button>
-        <button
-          data-set-theme="light"
-          data-act-class="toggle-dark"
-          class="toggle-dark"
-          aria-label="Change theme"
-        >
-          <Icon name="ri:moon-line" class="w-6 h-6" />
-        </button>
-      </li>
     </ul>
   </div>
 </div>
-
-<style lang="scss" is:global>
-  html[data-theme="light"] .toggle-light,
-  html[data-theme="dark"] .toggle-dark {
-    display: block;
-  }
-
-  html[data-theme="dark"] .toggle-light,
-  html[data-theme="light"] .toggle-dark {
-    display: none;
-  }
-</style>

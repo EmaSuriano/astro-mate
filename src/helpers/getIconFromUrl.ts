@@ -10,10 +10,5 @@ const DEFAULT_ICON = "ri:earth-line";
 
 export const getIconFromUrl = (url: string) => {
   const found = SITE_ICON_MAP.find((site) => url.includes(site.domain));
-
-  if (!found) {
-    return DEFAULT_ICON;
-  }
-
-  return found.icon;
+  return found ? found.icon : DEFAULT_ICON;
 };

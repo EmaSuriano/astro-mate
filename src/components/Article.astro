@@ -5,11 +5,9 @@ type Props = {
   content: string;
 };
 
-const { content } = Astro.props as Props;
+const { content } = Astro.props;
 ---
 
 <article class="prose prose-slate prose-a:text-secondary prose-a:link-hover">
-  <Markdown content={content}>
-
-  </Markdown>
+  <Markdown content={content} />
 </article>

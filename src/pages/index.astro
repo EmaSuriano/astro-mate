@@ -7,7 +7,7 @@ import Projects from "../sections/Projects.astro";
 import Writing from "../sections/Writing.astro";
 import Footer from "../components/Footer.astro";
 import { configSchema } from "../validator";
-import { getHeaderSections } from "../helpers/getHeaderSections";
+import { getSections } from "../helpers/sections";
 
 const CONFIG_URL =
   "https://gist.githubusercontent.com/EmaSuriano/ca34cb6f89c7436e256eeed5854f625d/raw/mate-profile.json";
@@ -16,24 +16,14 @@ const config = await fetch(CONFIG_URL)
   .then((res) => res.json())
   .then(configSchema.parse);
 
-const sections = getHeaderSections(config);
+const sections = getSections(config);
 ---
 
 <Layout title="Welcome to Astro.">
   <Header sections={sections} name={config.name} />
   <Landing name={config.name} roles={config.roles} social={config.social} />
   <About avatar={config.avatar} aboutMe={config.aboutMe} />
-
-  {
-    sections.find((section) => section.href === "#projects") && (
-      <Projects projects={config.projects} />
-    )
-  }
-
-  {
-    sections.find((section) => section.href === "#writing") && (
-      <Writing devToUser={config.devToUser!} />
-    )
-  }
+  {sections.includes("projects") && <Projects projects={config.projects} />}
+  {sections.includes("writing") && <Writing devToUser={config.devToUser!} />}
   <Footer />
 </Layout>

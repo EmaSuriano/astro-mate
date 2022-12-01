@@ -1,27 +1,46 @@
 ---
 import Article from "../components/Article.astro";
 import Title from "../components/Title.astro";
-// import Wave from "../components/Wave.astro";
+import Triangle from "../components/Triangle.astro";
+import { getSectionLink } from "../helpers/sections";
 import type { Config } from "../types";
+
+const SECTION_ID = "about";
 
 type Props = Pick<Config, "aboutMe" | "avatar">;
 
-const { aboutMe, avatar } = Astro.props as Props;
+const { aboutMe, avatar } = Astro.props;
+
+const { label, href } = getSectionLink(SECTION_ID);
 
 const content = await fetch(aboutMe).then((res) => res.text());
 ---
 
-<!-- <Wave direction="bottom" fill="fill-base-200" /> -->
-<section class="hero min-h-screen bg-base-200 relative" id="about">
+<section class="hero min-h-screen relative" id={SECTION_ID}>
+  <Triangle
+    className="bg-secondary w-[50vw] h-[50vh] md:h-[20vh]"
+    position="bottom-left"
+  />
+
+  <Triangle
+    className="bg-primary w-[75vw] h-[20vh] md:w-[70vw] md:h-[40vh]"
+    position="top-right"
+  />
+
+  <Triangle
+    className="bg-accent w-[100vw] h-[25vh] md:h-[20vh]"
+    position="top-left"
+  />
+
   <div class="hero-content flex-col lg:flex-row m-4 max-w-screen-xl z-10">
     <div class="flex flex-col gap-8">
-      <Title href="#about" label="About me 🙋‍♂️" />
+      <Title href={href} label={label} />
       <Article content={content} />
     </div>
 
     <div class="avatar w-72 m-10">
       <img
-        class="transition-all rounded-full ring-primary hover:ring hover:ring-offset-4 hover:scale-105"
+        class="transition-all rounded-full ring-accent hover:ring-8 hover:scale-105"
         src={avatar}
         alt="Avatar"
       />

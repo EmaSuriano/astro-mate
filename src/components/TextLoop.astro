@@ -3,7 +3,7 @@ export type Props = {
   words: string[];
 };
 
-const { words } = Astro.props as Props;
+const { words } = Astro.props;
 
 const flip = "flip" + words.length;
 ---

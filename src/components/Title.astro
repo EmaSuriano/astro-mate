@@ -3,12 +3,11 @@ import type { Link } from "../types";
 
 type Props = Link;
 
-const { href, label } = Astro.props as Props;
+const { href, label } = Astro.props;
 ---
 
 <h2 class="text-4xl">
   <a class="link-underline link-underline-black pb-1" href={href}>
-    <span class="link-accent">#</span>
     {label}
   </a>
 </h2>

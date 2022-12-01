@@ -1,26 +1,43 @@
 ---
 import ArticleCard from "../components/ArticleCard.astro";
 import Title from "../components/Title.astro";
-// import Wave from "../components/Wave.astro";
+import Triangle from "../components/Triangle.astro";
+import { getSectionLink } from "../helpers/sections";
 import type { Config } from "../types";
 import { articleListSchema } from "../validator";
 
+const SECTION_ID = "writing";
+
 type Props = Required<Pick<Config, "devToUser">>;
 
-const { devToUser } = Astro.props as Props;
+const { devToUser } = Astro.props;
 
-const url = `https://dev.to/api/articles?username=${devToUser}&per_page=6`;
+const { label, href } = getSectionLink(SECTION_ID);
 
-const articles = await fetch(url)
+const articles = await fetch(
+  `https://dev.to/api/articles?username=${devToUser}&per_page=6`
+)
   .then((res) => res.json())
   .then(articleListSchema.parse);
 ---
 
-<!-- <Wave direction="bottom" fill="fill-base-200" /> -->
-<section class="hero min-h-screen bg-base-200" id="writing">
+<section class="relative hero min-h-screen" id="writing">
+  <Triangle
+    className="bg-accent w-[100vw] h-[15vh] md:h-[10vh]"
+    position="top-left"
+  />
+  <Triangle
+    className="bg-secondary w-[70vw] h-[50vh] md:w-[40vw] md:h-[40vh]"
+    position="bottom-left"
+  />
+  <Triangle
+    className="bg-primary w-[100vw] h-[40vh] md:h-[15vh]"
+    position="bottom-right"
+  />
+
   <div class="hero-content max-w-screen-xl z-10">
     <div class="flex flex-col gap-8">
-      <Title href="#writing" label="Writing ✍️" />
+      <Title href={href} label={label} />
 
       <div
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-4 lg:gap-8"
