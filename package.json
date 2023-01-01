@@ -26,7 +26,7 @@
     "ts-to-zod": "^1.13.1"
   },
   "dependencies": {
-    "@astrojs/image": "^0.12.0",
+    "@astrojs/image": "^0.12.1",
     "@astrojs/markdown-component": "^1.0.2",
     "@tailwindcss/typography": "^0.5.8",
     "astro-icon": "^0.8.0",
