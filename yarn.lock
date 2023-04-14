@@ -30,10 +30,10 @@
   resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-1.3.1.tgz#76930733f6711af0242307da681ca9d278a33df7"
   integrity sha512-xV/3r+Hrfpr4ECfJjRjeaMkJvU73KiOADowHjhkqidfNPVAWPzbqw1KePXuMK1TjzMvoAVE7E163oqfH3lDwSw==
 
-"@astrojs/image@^0.13.0":
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/@astrojs/image/-/image-0.13.0.tgz#a125861556363113267d85ce007c0b46504f3a7d"
-  integrity sha512-18IlEsb/mau4ji9sR7+JVPFJHtgIk7Qh/Ol+Hh/JNcPn/oMrjP6FMU3VrNHPy5Ltvw1DyzkDV4wu+jYKU/V0Hw==
+"@astrojs/image@^0.16.6":
+  version "0.16.6"
+  resolved "https://registry.yarnpkg.com/@astrojs/image/-/image-0.16.6.tgz#227268462d5b21cdf191a337eb9b3213d74cf5ae"
+  integrity sha512-/MJ0aByhuNAT7VeMwXVjS0e5IH8MxsYeEnymOJ0/1VBmZFmcbtb1nUeLE0uO3EV3kNYGRJtwGyald8YJ9ncW4A==
   dependencies:
     "@altano/tiny-async-pool" "^1.0.2"
     http-cache-semantics "^4.1.0"
@@ -41,7 +41,6 @@
     kleur "^4.1.5"
     magic-string "^0.27.0"
     mime "^3.0.0"
-    slash "^4.0.0"
 
 "@astrojs/language-server@^0.28.3":
   version "0.28.3"
