@@ -52,5 +52,5 @@ export type Config = {
    */
   avatar: string;
   projects: Project[];
-  devToUser?: string;
+  devToUser: string | null;
 };

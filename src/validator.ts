@@ -2,10 +2,15 @@
 import { z } from "zod";
 
 export const linkSchema = z.object({
-  icon: z.string(),
   label: z.string(),
   href: z.string().url(),
 });
+
+export const socialLinkSchema = linkSchema.and(
+  z.object({
+    icon: z.string(),
+  })
+);
 
 export const projectSchema = z.object({
   name: z.string(),
@@ -27,9 +32,9 @@ export const articleListSchema = z.array(articleSchema);
 export const configSchema = z.object({
   name: z.string(),
   roles: z.array(z.string()),
-  social: z.array(linkSchema),
+  social: z.array(socialLinkSchema),
   aboutMe: z.string().url(),
   avatar: z.string().url(),
   projects: z.array(projectSchema),
-  devToUser: z.string().optional(),
+  devToUser: z.string().nullable(),
 });

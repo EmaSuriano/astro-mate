@@ -23,6 +23,7 @@ const sections = getSections(config);
   <Header sections={sections} name={config.name} />
   <Landing name={config.name} roles={config.roles} social={config.social} />
   <About avatar={config.avatar} aboutMe={config.aboutMe} />
+
   {sections.includes("projects") && <Projects projects={config.projects} />}
   {sections.includes("writing") && <Writing devToUser={config.devToUser!} />}
   <Footer />

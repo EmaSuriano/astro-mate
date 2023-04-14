@@ -6,14 +6,15 @@
     "update-validator": "ts-to-zod src/types.ts src/validator.ts",
     "dev": "astro dev",
     "start": "astro dev",
-    "check-types": "astro check && tsc --noEmit",
+    "check-types": "yarn update-validator && astro check && tsc --noEmit",
     "build": "astro build",
     "preview": "astro preview",
     "clean": "npx rimraf dist"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^3.0.0",
-    "astro": "^2.0.1",
+    "@types/node": "^18.15.11",
+    "astro": "^2.3.0",
     "autoprefixer": "^10.4.13",
     "daisyui": "^2.49.0",
     "less": "^4.1.3",
@@ -23,7 +24,8 @@
     "react-dom": "^18.0.0",
     "sass": "^1.57.1",
     "tailwindcss": "^3.2.4",
-    "ts-to-zod": "^1.13.1"
+    "ts-to-zod": "^1.13.1",
+    "typescript": "^5.0.4"
   },
   "dependencies": {
     "@astrojs/image": "^0.13.0",
