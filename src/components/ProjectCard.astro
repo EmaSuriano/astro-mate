@@ -18,8 +18,8 @@ const { project } = Astro.props;
     <Image
       src={project.cover}
       alt={`Cover of ${project.name}`}
-      height="250"
-      width="450"
+      height={250}
+      width={450}
     />
     <span class="badge absolute top-3 right-3">
       {project.yearReleased}
