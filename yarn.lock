@@ -567,7 +567,7 @@
     is-wsl "^2.1.1"
     tslib "^2.3.1"
 
-"@oclif/errors@1.3.5", "@oclif/errors@^1.3.3", "@oclif/errors@^1.3.5":
+"@oclif/errors@1.3.5":
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/@oclif/errors/-/errors-1.3.5.tgz#a1e9694dbeccab10fe2fe15acb7113991bed636c"
   integrity sha512-OivucXPH/eLLlOT7FkCMoZXiaVYf8I/w1eTAM1+gKzfhALwWTusxEx7wBmW0uzvkSg/9ovWLycPaBgJbM3LOCQ==
@@ -576,6 +576,17 @@
     fs-extra "^8.1"
     indent-string "^4.0.0"
     strip-ansi "^6.0.0"
+    wrap-ansi "^7.0.0"
+
+"@oclif/errors@^1.3", "@oclif/errors@^1.3.3", "@oclif/errors@^1.3.5":
+  version "1.3.6"
+  resolved "https://registry.yarnpkg.com/@oclif/errors/-/errors-1.3.6.tgz#e8fe1fc12346cb77c4f274e26891964f5175f75d"
+  integrity sha512-fYaU4aDceETd89KXP+3cLyg9EHZsLD3RxF2IU9yxahhBpspWjkWi3Dy3bTgcwZ3V47BgxQaGapzJWDM33XIVDQ==
+  dependencies:
+    clean-stack "^3.0.0"
+    fs-extra "^8.1"
+    indent-string "^4.0.0"
+    strip-ansi "^6.0.1"
     wrap-ansi "^7.0.0"
 
 "@oclif/help@^1.0.1":
@@ -4083,13 +4094,14 @@ ts-interface-checker@^0.1.9:
   resolved "https://registry.yarnpkg.com/ts-interface-checker/-/ts-interface-checker-0.1.13.tgz#784fd3d679722bc103b1b4b8030bcddb5db2a699"
   integrity sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==
 
-ts-to-zod@^1.13.1:
-  version "1.13.1"
-  resolved "https://registry.yarnpkg.com/ts-to-zod/-/ts-to-zod-1.13.1.tgz#c48aac07f81de556d75201d7532b0f59979facce"
-  integrity sha512-C8eD8HbNHysoFPJnVu3ix6S9lugEQ5IPOGx9a4CiY5q4jDZGc+Pgi96fyPSTSmEpHYni6EFN/uzHmIvpxeFFLA==
+ts-to-zod@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/ts-to-zod/-/ts-to-zod-3.1.2.tgz#b3c59f6d939f734ad2e6e8a20e2059444a887940"
+  integrity sha512-+yiHdt3aOrntihS4qi9U3x9+em5GRrnuLiANnhV5ugmq7ti9kAW3079333j0m1stqib0fSwmwdCDSxQIE+2fDQ==
   dependencies:
     "@oclif/command" "^1.8.6"
     "@oclif/config" "^1.17.1"
+    "@oclif/errors" "^1.3"
     "@oclif/plugin-help" "^3.2.7"
     "@typescript/vfs" "^1.3.5"
     async "^3.2.0"
