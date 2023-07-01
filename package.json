@@ -31,7 +31,7 @@
     "@astrojs/image": "^0.16.9",
     "@astrojs/markdown-component": "^1.0.4",
     "@tailwindcss/typography": "^0.5.9",
-    "astro-icon": "^0.8.0",
+    "astro-icon": "^0.8.1",
     "sharp": "^0.32.1",
     "tailwindcss-triangle-after": "^1.2.0",
     "tailwindcss-triangles": "^4.0.0",
