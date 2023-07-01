@@ -61,10 +61,10 @@
     vscode-languageserver-types "^3.17.1"
     vscode-uri "^3.0.3"
 
-"@astrojs/markdown-component@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@astrojs/markdown-component/-/markdown-component-1.0.4.tgz#4d3f7d7cebf1f1e8e8dffc6a85d9424dc7ff9267"
-  integrity sha512-d/dcMwzEzocKncJycb6xUpQYYuKWktgQ6QFq8pJ9NyAIe0wmOacFP/tygv6mK067mXlhbI3MUhrRvCkgotWXjg==
+"@astrojs/markdown-component@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@astrojs/markdown-component/-/markdown-component-1.0.5.tgz#fc18037ab399f46c660e9a906a7ed14e85849e1b"
+  integrity sha512-e7pzVfEZmjyZMmKGwLbfds36idAt9Yi8c0N0VQw2cVEgK8QdQecZLc07JvUSugoZxINtoVA0Afpm8EcIP52Ncw==
 
 "@astrojs/markdown-remark@^2.2.1":
   version "2.2.1"

@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@astrojs/image": "^0.16.9",
-    "@astrojs/markdown-component": "^1.0.4",
+    "@astrojs/markdown-component": "^1.0.5",
     "@tailwindcss/typography": "^0.5.9",
     "astro-icon": "^0.8.1",
     "sharp": "^0.32.1",
