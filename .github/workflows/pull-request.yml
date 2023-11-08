@@ -1,6 +1,6 @@
 name: pull-request
 
-on: [pull_request]
+on: [pull_request, pull_request_target]
 
 jobs:
   build:
@@ -16,5 +16,4 @@ jobs:
       - run: yarn install --frozen-lockfile
 
       - run: yarn check-types
-
       - run: yarn build
