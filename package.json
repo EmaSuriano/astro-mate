@@ -24,7 +24,7 @@
     "react-dom": "^18.0.0",
     "sass": "^1.69.5",
     "tailwindcss": "^3.3.5",
-    "ts-to-zod": "^1.13.1",
+    "ts-to-zod": "^3.2.0",
     "typescript": "^5.2.2"
   },
   "dependencies": {
