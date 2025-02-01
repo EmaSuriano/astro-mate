@@ -25,7 +25,7 @@
     "sass": "^1.83.4",
     "tailwindcss": "^3.4.17",
     "ts-to-zod": "^1.13.1",
-    "typescript": "^5.3.3"
+    "typescript": "^5.7.3"
   },
   "dependencies": {
     "@astrojs/image": "^0.18.0",
