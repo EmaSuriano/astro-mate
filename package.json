@@ -16,7 +16,7 @@
     "@types/node": "^22.13.15",
     "astro": "^2.10.15",
     "autoprefixer": "^10.4.21",
-    "daisyui": "^2.51.6",
+    "daisyui": "^5.0.9",
     "less": "^4.2.2",
     "prettier": "^3.5.3",
     "prettier-plugin-astro": "^0.14.1",
