@@ -18,7 +18,7 @@
     "autoprefixer": "^10.4.21",
     "daisyui": "^2.51.6",
     "less": "^4.3.0",
-    "prettier": "^3.5.3",
+    "prettier": "^3.6.2",
     "prettier-plugin-astro": "^0.14.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
