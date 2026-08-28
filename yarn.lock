@@ -4338,10 +4338,10 @@ tailwindcss@^3, tailwindcss@^3.4.17:
     resolve "^1.22.8"
     sucrase "^3.35.0"
 
-theme-change@^2.5.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/theme-change/-/theme-change-2.5.0.tgz#d3b064af9c4cd01ab16ce0a4ecb251c827a50e68"
-  integrity sha512-B/UdsgdHAGhSKHTAQnxg/etN0RaMDpehuJmZIjLMDVJ6DGIliRHGD6pODi1CXLQAN9GV0GSyB3G6yCuK05PkPQ==
+theme-change@^2.5.2:
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/theme-change/-/theme-change-2.5.2.tgz#097f8f2d6030de5404be3e0a1536eeaca8038198"
+  integrity sha512-UOLweDXAKIKDio6XVElNSlhDCRM8XtOk3rih/NImOldhiOkjZqrAmmEBjiWBVipfXt0WOETVNY7ym4W+UwjcxQ==
 
 thenify-all@^1.0.0:
   version "1.6.0"
