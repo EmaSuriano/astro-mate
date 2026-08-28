@@ -14,7 +14,7 @@
   "devDependencies": {
     "@astrojs/tailwind": "^3.1.1",
     "@types/node": "^22.15.29",
-    "astro": "^2.10.15",
+    "astro": "^7.1.1",
     "autoprefixer": "^10.4.21",
     "daisyui": "^2.51.6",
     "less": "^4.4.1",
