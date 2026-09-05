@@ -1,5 +1,5 @@
 {
-  "name": "@example/basics",
+  "name": "astro-mate",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -12,29 +12,26 @@
     "clean": "npx rimraf dist"
   },
   "devDependencies": {
-    "@astrojs/tailwind": "^3.1.1",
     "@types/node": "^22.20.1",
-    "astro": "^2.10.15",
-    "autoprefixer": "^10.5.4",
-    "daisyui": "^2.51.6",
-    "less": "^4.4.1",
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8",
-    "sass": "^1.103.1",
-    "tailwindcss": "^3.4.19",
-    "ts-to-zod": "^1.13.1",
-    "typescript": "^5.3.3"
+    "ts-to-zod": "^3.0.0",
+    "typescript": "^5.9.3",
+    "@astrojs/check": "^0.9.10"
   },
   "dependencies": {
-    "@astrojs/image": "^0.18.0",
-    "@astrojs/markdown-component": "^1.0.5",
-    "@tailwindcss/typography": "^0.5.20",
-    "astro-icon": "^0.8.1",
-    "sharp": "^0.35.3",
-    "tailwindcss-triangle-after": "^1.2.0",
-    "tailwindcss-triangles": "^4.0.0",
-    "theme-change": "^2.5.2"
+    "@iconify-json/ri": "^1.2.5",
+    "@tailwindcss/typography": "^0.5.16",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.3.1",
+    "astro-icon": "^1.2.0",
+    "daisyui": "^5.7.28",
+    "marked": "^15.0.0",
+    "sharp": "^0.34.0",
+    "tailwindcss": "^4.3.3"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
   }
 }
