@@ -1,5 +1,4 @@
 ---
-import { Image } from "@astrojs/image/components";
 import type { Project } from "../types";
 
 type Props = {
@@ -15,11 +14,14 @@ const { project } = Astro.props;
   target="_blank"
 >
   <figure class="relative">
-    <Image
+    <img
       src={project.cover}
       alt={`Cover of ${project.name}`}
       height={250}
       width={450}
+      class="h-[250px] w-full object-cover"
+      loading="lazy"
+      decoding="async"
     />
     <span class="badge absolute top-3 right-3">
       {project.yearReleased}

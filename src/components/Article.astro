@@ -1,13 +1,12 @@
 ---
-import Markdown from "@astrojs/markdown-component";
+import { marked } from "marked";
 
 type Props = {
   content: string;
 };
 
 const { content } = Astro.props;
+const html = marked.parse(content);
 ---
 
-<article class="prose prose-slate prose-a:text-secondary prose-a:link-hover">
-  <Markdown content={content} />
-</article>
+<article class="prose max-w-none prose-a:text-secondary" set:html={html} />
