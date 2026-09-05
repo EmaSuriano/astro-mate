@@ -19,10 +19,15 @@
 <script>
   const input = document.querySelector("input.theme-controller") as HTMLInputElement | null;
   if (input) {
+    const apply = (theme: "light" | "dark") => {
+      document.documentElement.setAttribute("data-theme", theme);
+      localStorage.setItem("theme", theme);
+      input.checked = theme === "dark";
+    };
     const stored = localStorage.getItem("theme");
-    if (stored === "dark") input.checked = true;
+    if (stored === "dark" || stored === "light") apply(stored);
     input.addEventListener("change", () => {
-      localStorage.setItem("theme", input.checked ? "dark" : "light");
+      apply(input.checked ? "dark" : "light");
     });
   }
 </script>
