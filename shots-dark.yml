@@ -28,3 +28,37 @@
       await new Promise((r) => setTimeout(r, 500));
       document.querySelector("#projects")?.scrollIntoView({ block: "center" });
     }
+
+- url: https://astro-mate.netlify.app/
+  output: screenshots/about-dark.png
+  width: 1440
+  height: 900
+  wait: 1500
+  selector: "#about"
+  padding: 16
+  javascript: |
+    async () => {
+      localStorage.setItem("theme", "dark");
+      document.documentElement.setAttribute("data-theme", "dark");
+      const input = document.querySelector("input.theme-controller");
+      if (input) input.checked = true;
+      await new Promise((r) => setTimeout(r, 500));
+      document.querySelector("#about")?.scrollIntoView({ block: "center" });
+    }
+
+- url: https://astro-mate.netlify.app/
+  output: screenshots/writing-dark.png
+  width: 1440
+  height: 900
+  wait: 1500
+  selector: "#writing"
+  padding: 16
+  javascript: |
+    async () => {
+      localStorage.setItem("theme", "dark");
+      document.documentElement.setAttribute("data-theme", "dark");
+      const input = document.querySelector("input.theme-controller");
+      if (input) input.checked = true;
+      await new Promise((r) => setTimeout(r, 500));
+      document.querySelector("#writing")?.scrollIntoView({ block: "center" });
+    }
