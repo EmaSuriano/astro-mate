@@ -1,18 +1,14 @@
+// @ts-check
 import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
-import image from "@astrojs/image";
+import tailwindcss from "@tailwindcss/vite";
+import icon from "astro-icon";
 
-// https://astro.build/config
 export default defineConfig({
-  integrations: [
-    tailwind(),
-    image({
-      serviceEntryPoint: "@astrojs/image/sharp",
-    }),
-  ],
+  integrations: [icon()],
+  image: {
+    remotePatterns: [{ protocol: "https" }],
+  },
   vite: {
-    ssr: {
-      external: ["svgo"],
-    },
+    plugins: [tailwindcss()],
   },
 });
