@@ -9,12 +9,14 @@
 
 ## Screenshots 📸
 
-Captured from the [live demo](https://astro-mate.netlify.app/) with [shot-scraper](https://github.com/simonw/shot-scraper). Light and dark run as parallel CI jobs via [`shots-light.yml`](shots-light.yml) / [`shots-dark.yml`](shots-dark.yml) (workflow: [`.github/workflows/screenshots.yml`](.github/workflows/screenshots.yml)). Home and Projects (DaisyUI `data-theme`).
+Captured from the [live demo](https://astro-mate.netlify.app/) with [shot-scraper](https://github.com/simonw/shot-scraper). Light and dark run as parallel CI jobs via [`shots-light.yml`](shots-light.yml) / [`shots-dark.yml`](shots-dark.yml) (workflow: [`.github/workflows/screenshots.yml`](.github/workflows/screenshots.yml)). Home, About, Projects, and Writing (DaisyUI `data-theme`).
 
 | Light | Dark |
 | ----- | ---- |
 | ![Home - Light](screenshots/home-light.png) | ![Home - Dark](screenshots/home-dark.png) |
+| ![About - Light](screenshots/about-light.png) | ![About - Dark](screenshots/about-dark.png) |
 | ![Projects - Light](screenshots/projects-light.png) | ![Projects - Dark](screenshots/projects-dark.png) |
+| ![Writing - Light](screenshots/writing-light.png) | ![Writing - Dark](screenshots/writing-dark.png) |
 
 
 ## Project Overview 👨‍💻
