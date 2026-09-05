@@ -5,15 +5,14 @@ import ThemeSwitch from "./ThemeSwitch.astro";
 
 type Props = Pick<Config, "name"> & { sections: Section[] };
 
-const { sections } = Astro.props;
+const { sections, name } = Astro.props;
 const sectionLinks = sections.map(getSectionLink);
 ---
 
 <nav class="site-nav absolute inset-x-0 top-0 z-20 bg-transparent text-[var(--color-ink)]" aria-label="Primary">
   <div class="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-6 py-5 md:px-12 lg:px-16">
-    <a class="font-ui text-xs font-medium uppercase tracking-[0.18em] text-[var(--color-muted)] transition-colors hover:text-[var(--color-accent)]" href="#home">Index</a>
+    <a class="font-display text-2xl tracking-tight text-[var(--color-ink)] transition-colors hover:text-[var(--color-accent)] md:text-[1.65rem]" href="#home">{name}</a>
     <div class="flex items-center gap-1 sm:gap-2">
-      <ThemeSwitch />
       <ul class="hidden items-center gap-5 font-ui text-sm text-[var(--color-muted)] sm:flex">
         {sectionLinks.map((section) => (
           <li>
@@ -21,6 +20,7 @@ const sectionLinks = sections.map(getSectionLink);
           </li>
         ))}
       </ul>
+      <ThemeSwitch />
       <div class="dropdown dropdown-end sm:hidden">
         <button type="button" tabindex="0" class="font-ui text-sm text-[var(--color-muted)] underline-offset-4 hover:text-[var(--color-ink)] hover:underline">Menu</button>
         <ul tabindex="-1" class="menu dropdown-content z-20 mt-2 w-44 border border-[var(--color-rule)] bg-[var(--color-paper)] p-2 text-[var(--color-ink)]">

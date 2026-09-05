@@ -13,7 +13,6 @@ const stripEmoji = (value: string) =>
     .trim();
 
 const rolesLine = roles.map(stripEmoji).filter(Boolean).join(" · ");
-const year = new Date().getFullYear();
 ---
 
 <section
@@ -23,19 +22,9 @@ const year = new Date().getFullYear();
   <div class="hero-whisper" aria-hidden="true"></div>
 
   <div
-    class="relative z-10 mx-auto flex min-h-[85vh] w-full max-w-6xl flex-col px-6 pb-24 pt-20 md:px-12 lg:px-16"
+    class="relative z-10 mx-auto flex min-h-[85vh] w-full max-w-6xl flex-col px-6 pb-24 pt-24 md:px-12 lg:px-16"
   >
-    <header class="hero-masthead">
-      <div class="flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
-        <p class="font-display text-4xl font-normal tracking-tight text-[var(--color-ink)] md:text-5xl">
-          Mate
-        </p>
-        <p class="hero-meta font-ui">
-          Portfolio · Astro theme · {year}
-        </p>
-      </div>
-      <div class="hero-double-rule" aria-hidden="true"></div>
-    </header>
+    <div class="hero-double-rule" aria-hidden="true"></div>
 
     <div class="specimen-grid mt-14 flex flex-1 flex-col justify-center md:mt-16">
       <p class="specimen-label" aria-hidden="true">01 — Intro.</p>
@@ -71,7 +60,7 @@ const year = new Date().getFullYear();
       </div>
     </div>
 
-    <div class="absolute bottom-10 left-6 md:left-12 lg:left-16">
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2">
       <ScrollIcon href="#about" />
     </div>
   </div>
