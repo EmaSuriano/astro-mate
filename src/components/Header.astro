@@ -12,12 +12,12 @@ const { sections, name } = Astro.props;
 const sectionLinks = sections.map(getSectionLink);
 ---
 
-<div class="navbar absolute top-0 inset-x-0 z-10 text-primary-content -mb-1">
+<div class="navbar absolute top-0 inset-x-0 z-10 text-base-content -mb-1">
   <div class="flex-1">
     <a class="btn btn-ghost normal-case text-xl" href="/">{name}</a>
   </div>
   <div class="flex-none">
-    <ul class="menu menu-horizontal p-0 space-x-1 text-primary-content">
+    <ul class="menu menu-horizontal p-0 space-x-1 text-base-content">
       <li>
         <ThemeSwitch />
       </li>
