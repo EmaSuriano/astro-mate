@@ -3,7 +3,6 @@ import Title from "../components/Title.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import type { Config } from "../types";
 import { getSectionLink } from "../helpers/sections";
-import Triangle from "../components/Triangle.astro";
 
 const SECTION_ID = "projects";
 
@@ -14,30 +13,11 @@ const { projects } = Astro.props;
 const { label, href } = getSectionLink(SECTION_ID);
 ---
 
-<section class="hero min-h-screen relative" id={SECTION_ID}>
-  <Triangle className="bg-secondary w-[100vw] h-[80vh]" position="top-right" />
-  <Triangle
-    className="bg-base-100 w-[50vw] h-[50vh] md:h-[20vh]"
-    position="top-right"
-  />
-  <Triangle
-    className="bg-primary w-[75vw] h-[25vh] md:h-[40vh] md:w-[60vw]"
-    position="bottom-right"
-  />
-  <Triangle
-    className="bg-accent w-[100vw] h-[25vh] md:h-[20vh]"
-    position="bottom-right"
-  />
-
-  <div class="hero-content max-w-screen-xl m-4 z-10">
-    <div class="flex flex-col gap-8">
-      <Title href={href} label={label} />
-
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-4 lg:gap-8"
-      >
-        {projects.map((project) => <ProjectCard project={project} />)}
-      </div>
+<section class="section-shell min-h-screen py-20 md:py-28" id={SECTION_ID}>
+  <div class="mx-auto flex w-full max-w-6xl flex-col gap-10 px-6 md:px-12 lg:px-16">
+    <Title href={href} label={label} />
+    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8">
+      {projects.map((project) => <ProjectCard project={project} />)}
     </div>
   </div>
 </section>
