@@ -30,5 +30,5 @@ const sections = getSections(config);
 
   {sections.includes("projects") && <Projects projects={config.projects} />}
   {sections.includes("writing") && <Writing devToUser={config.devToUser!} />}
-  <Footer />
+  <Footer name={config.name} social={config.social} />
 </Layout>

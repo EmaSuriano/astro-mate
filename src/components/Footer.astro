@@ -1,20 +1,23 @@
 ---
+import type { Config } from "../types";
+
+type Props = Pick<Config, "name" | "social">;
+
+const { name, social } = Astro.props;
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="footer-letter border-t border-[var(--color-rule)] bg-[var(--color-paper)] px-6 py-14 text-[var(--color-muted)] md:px-12 lg:px-16">
-  <div class="mx-auto flex w-full max-w-6xl flex-col gap-8">
-    <div class="max-w-md font-serif text-base leading-relaxed text-[var(--color-ink)] md:text-lg">
-      <p>With care,</p>
-      <p class="font-display text-2xl tracking-tight">Mate</p>
-    </div>
-    <div class="hero-double-rule max-w-xs" aria-hidden="true"></div>
-    <div class="flex flex-col gap-2 font-ui text-xs uppercase tracking-[0.16em] sm:flex-row sm:items-center sm:justify-between">
-      <p>&copy; {currentYear}</p>
-      <p>
-        An Astro theme ·
-        <a class="text-[var(--color-accent)] underline-offset-4 hover:underline" href="https://astro.build/">Astro</a>
-      </p>
-    </div>
+<footer class="border-t border-[var(--color-rule)] bg-[var(--color-paper)] px-6 py-10 text-[var(--color-muted)] md:px-12 lg:px-16">
+  <div class="mx-auto flex w-full max-w-6xl flex-col gap-4 font-ui text-sm sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-x-8 sm:gap-y-3">
+    <p class="font-display text-base tracking-tight text-[var(--color-ink)]">{name}</p>
+    <p class="text-[var(--color-muted)]">A quiet portfolio theme</p>
+    <ul class="flex flex-wrap items-center gap-x-4 gap-y-2">
+      {social.map((link) => (
+        <li>
+          <a class="transition-colors hover:text-[var(--color-accent)]" href={link.href}>{link.label}</a>
+        </li>
+      ))}
+    </ul>
+    <p class="sm:ml-auto">&copy; {currentYear}</p>
   </div>
 </footer>
