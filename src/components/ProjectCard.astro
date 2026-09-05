@@ -9,11 +9,11 @@ const { project } = Astro.props;
 ---
 
 <a
-  class="card bg-base-200 shadow-xl link link-primary link-card transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-105 duration-200 hover:shadow-2xl"
+  class="card w-full bg-base-200 shadow-xl link link-primary link-card transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-105 duration-200 hover:shadow-2xl"
   href={project.href}
   target="_blank"
 >
-  <figure class="relative">
+  <figure class="relative aspect-[18/10] w-full overflow-hidden">
     <img
       src={project.cover}
       alt={`Cover of ${project.name}`}
