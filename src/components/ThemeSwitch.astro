@@ -17,7 +17,7 @@
 </label>
 
 <script>
-  const input = document.querySelector("input.theme-controller");
+  const input = document.querySelector("input.theme-controller") as HTMLInputElement | null;
   if (input) {
     const stored = localStorage.getItem("theme");
     if (stored === "dark") input.checked = true;
