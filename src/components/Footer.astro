@@ -2,9 +2,19 @@
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="border-t border-[var(--color-rule)] bg-[var(--color-paper)] px-6 py-10 text-[var(--color-muted)] md:px-12 lg:px-16">
-  <div class="mx-auto flex w-full max-w-6xl flex-col gap-2 text-sm sm:flex-row sm:items-center sm:justify-between">
-    <p>&copy; {currentYear}</p>
-    <p>Built with <a class="link link-hover text-[var(--color-accent)]" href="https://astro.build/">Astro</a> + <a class="link link-hover text-[var(--color-accent)]" href="https://daisyui.com/">DaisyUI</a></p>
+<footer class="footer-letter border-t border-[var(--color-rule)] bg-[var(--color-paper)] px-6 py-14 text-[var(--color-muted)] md:px-12 lg:px-16">
+  <div class="mx-auto flex w-full max-w-6xl flex-col gap-8">
+    <div class="max-w-md font-serif text-base leading-relaxed text-[var(--color-ink)] md:text-lg">
+      <p>With care,</p>
+      <p class="font-display text-2xl tracking-tight">Mate</p>
+    </div>
+    <div class="hero-double-rule max-w-xs" aria-hidden="true"></div>
+    <div class="flex flex-col gap-2 font-ui text-xs uppercase tracking-[0.16em] sm:flex-row sm:items-center sm:justify-between">
+      <p>&copy; {currentYear}</p>
+      <p>
+        An Astro theme ·
+        <a class="text-[var(--color-accent)] underline-offset-4 hover:underline" href="https://astro.build/">Astro</a>
+      </p>
+    </div>
   </div>
 </footer>

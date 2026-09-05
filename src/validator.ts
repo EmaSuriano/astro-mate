@@ -25,6 +25,7 @@ export const articleSchema = z.object({
   description: z.string(),
   url: z.string().url(),
   social_image: z.string().url(),
+  published_at: z.string().optional(),
 });
 
 export const articleListSchema = z.array(articleSchema);

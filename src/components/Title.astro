@@ -1,19 +1,30 @@
 ---
 import type { Link } from "../types";
 
-type Props = Link;
+type Props = Link & { kicker?: string };
 
-const { href, label } = Astro.props;
+const { href, label, kicker } = Astro.props;
 ---
 
-<h2 class="font-display text-4xl text-[var(--color-ink)] md:text-5xl">
-  <a class="section-title-link relative pb-1" href={href}>{label}</a>
-</h2>
+<div class="section-head">
+  {kicker && <p class="section-kicker font-ui">{kicker}</p>}
+  <h2 class="font-display text-4xl text-[var(--color-ink)] md:text-5xl">
+    <a class="section-title-link relative pb-1" href={href}>{label}</a>
+  </h2>
+</div>
 
 <style>
   @reference "../styles/global.css";
+  .section-kicker {
+    margin-bottom: 0.75rem;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
   .section-title-link::after {
-    position: absolute; bottom: 0; left: 0; right: 0; height: 2px; border-radius: 9999px;
+    position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
     background-color: var(--color-accent); content: ""; opacity: 0;
     transition: opacity 300ms, transform 300ms;
   }

@@ -194,3 +194,77 @@ body {
 .section-shell + .section-shell {
   border-top: 1px solid var(--color-rule);
 }
+
+.editorial-index {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.index-row {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr auto;
+  gap: 1rem 1.25rem;
+  align-items: start;
+  padding: 1.35rem 0;
+  border-bottom: 1px solid var(--color-rule);
+  text-decoration: none;
+  color: inherit;
+}
+
+.index-row:first-child {
+  border-top: 1px solid var(--color-rule);
+}
+
+.index-year {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+  padding-top: 0.35rem;
+}
+
+.index-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.index-title {
+  font-size: 1.35rem;
+  line-height: 1.2;
+  color: var(--color-ink);
+}
+
+.index-dek {
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: var(--color-muted);
+}
+
+.index-action {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--color-muted);
+  padding-top: 0.45rem;
+  white-space: nowrap;
+}
+
+.index-row:hover .index-title,
+.index-row:focus-visible .index-title {
+  color: var(--color-accent);
+}
+
+.index-row:hover .index-action,
+.index-row:focus-visible .index-action {
+  color: var(--color-accent);
+}
+
+@media (max-width: 639px) {
+  .index-row {
+    grid-template-columns: 3.25rem 1fr;
+  }
+  .index-action {
+    display: none;
+  }
+}

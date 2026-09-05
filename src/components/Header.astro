@@ -3,34 +3,46 @@ import { getSectionLink, type Section } from "../helpers/sections";
 import type { Config } from "../types";
 import ThemeSwitch from "./ThemeSwitch.astro";
 
-type Props = Pick<Config, "name"> & { sections: Section[]; };
+type Props = Pick<Config, "name"> & { sections: Section[] };
 
-const { sections, name } = Astro.props;
+const { sections } = Astro.props;
 const sectionLinks = sections.map(getSectionLink);
 ---
 
-<div class="navbar absolute inset-x-0 top-0 z-20 bg-transparent text-[var(--color-ink)]">
-  <div class="mx-auto flex w-full max-w-6xl items-center px-6 md:px-12 lg:px-16">
-    <div class="flex-1">
-      <a class="btn btn-ghost px-0 text-lg font-medium normal-case" href="/">{name}</a>
-    </div>
-    <div class="flex-none">
-      <ul class="menu menu-horizontal items-center gap-1 p-0 text-[var(--color-muted)]">
-        <li><ThemeSwitch /></li>
+<nav class="site-nav absolute inset-x-0 top-0 z-20 bg-transparent text-[var(--color-ink)]" aria-label="Primary">
+  <div class="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-6 py-5 md:px-12 lg:px-16">
+    <a class="font-ui text-xs font-medium uppercase tracking-[0.18em] text-[var(--color-muted)] transition-colors hover:text-[var(--color-accent)]" href="#home">Index</a>
+    <div class="flex items-center gap-1 sm:gap-2">
+      <ThemeSwitch />
+      <ul class="hidden items-center gap-5 font-ui text-sm text-[var(--color-muted)] sm:flex">
         {sectionLinks.map((section) => (
-          <li class="hidden sm:inline">
-            <a class="hover:text-[var(--color-ink)]" href={section.href}>{section.label}</a>
+          <li>
+            <a class="nav-link" href={section.href}>{section.label}</a>
           </li>
         ))}
-        <li class="dropdown dropdown-end inline sm:hidden">
-          <div tabindex="0" role="button" class="btn btn-ghost btn-sm">Sections</div>
-          <ul tabindex="-1" class="menu dropdown-content z-20 mt-2 w-44 rounded-box border border-[var(--color-rule)] bg-base-100 p-2 text-base-content shadow">
-            {sectionLinks.map((section) => (
-              <li><a href={section.href}>{section.label}</a></li>
-            ))}
-          </ul>
-        </li>
       </ul>
+      <div class="dropdown dropdown-end sm:hidden">
+        <button type="button" tabindex="0" class="font-ui text-sm text-[var(--color-muted)] underline-offset-4 hover:text-[var(--color-ink)] hover:underline">Menu</button>
+        <ul tabindex="-1" class="menu dropdown-content z-20 mt-2 w-44 border border-[var(--color-rule)] bg-[var(--color-paper)] p-2 text-[var(--color-ink)]">
+          {sectionLinks.map((section) => (
+            <li><a href={section.href}>{section.label}</a></li>
+          ))}
+        </ul>
+      </div>
     </div>
   </div>
-</div>
+</nav>
+
+<style>
+  @reference "../styles/global.css";
+  .nav-link {
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 0.1rem;
+    transition: color 150ms, border-color 150ms;
+  }
+  .nav-link:hover, .nav-link:focus-visible {
+    color: var(--color-ink);
+    border-bottom-color: var(--color-accent);
+  }
+</style>

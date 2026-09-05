@@ -35,6 +35,7 @@ export type Article = {
    * @format url
    */
   social_image: string;
+  published_at?: string;
 };
 
 export type ArticleList = Article[];
