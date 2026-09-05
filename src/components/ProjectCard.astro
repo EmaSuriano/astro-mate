@@ -6,7 +6,7 @@ type Props = { project: Project };
 const { project } = Astro.props;
 ---
 
-<a class="card link-card w-full border border-[var(--color-rule)] bg-[var(--color-paper-2)] shadow-sm transition duration-200 ease-in-out hover:-translate-y-1 hover:scale-105 hover:shadow-md" href={project.href} target="_blank" rel="noopener noreferrer">
+<a class="card link-card w-full border border-[var(--color-rule)] bg-[var(--color-paper-2)] shadow-sm transition duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-md" href={project.href} target="_blank" rel="noopener noreferrer">
   <figure class="relative aspect-[18/10] w-full overflow-hidden">
     <img src={project.cover} alt={`Cover of ${project.name}`} height={250} width={450} class="h-full w-full object-cover" loading="lazy" decoding="async" />
     <span class="badge absolute right-3 top-3 border-0 bg-base-100/90 text-base-content">{project.yearReleased}</span>

@@ -6,7 +6,7 @@ type Props = { article: Article };
 const { article } = Astro.props;
 ---
 
-<a class="card link-card w-full border border-[var(--color-rule)] bg-[var(--color-paper-2)] shadow-sm transition duration-200 ease-in-out hover:-translate-y-1 hover:scale-105 hover:shadow-md" href={article.url} target="_blank" rel="noopener noreferrer">
+<a class="card link-card w-full border border-[var(--color-rule)] bg-[var(--color-paper-2)] shadow-sm transition duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-md" href={article.url} target="_blank" rel="noopener noreferrer">
   <div class="card-body text-[var(--color-ink)]">
     <h2 class="card-title font-sans text-lg">{article.title}</h2>
     <p class="text-sm text-[var(--color-muted)]">{article.description}</p>
