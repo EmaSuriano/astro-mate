@@ -1,11 +1,18 @@
 ---
 import Article from "../components/Article.astro";
 import Title from "../components/Title.astro";
+import MateMark from "../components/MateMark.astro";
 import { getSectionLink } from "../helpers/sections";
 import type { Config } from "../types";
 import demoAbout from "../content/demo-about.md?raw";
 
 const SECTION_ID = "about";
+
+/** Demo pink square avatar shipped with the theme gist */
+const DEMO_AVATAR_MARKERS = [
+  "181063272-57826183-9f23-49cf-94f6-17a050818b89",
+  "user-images.githubusercontent.com/3399429/181063272",
+];
 
 type Props = Pick<Config, "aboutMe" | "avatar">;
 
@@ -21,24 +28,32 @@ const starterVoice =
 if (starterVoice) {
   content = demoAbout;
 }
+
+const useBrandMark = DEMO_AVATAR_MARKERS.some((marker) => avatar.includes(marker));
 ---
 
 <section class="section-shell py-24 md:py-32" id={SECTION_ID}>
   <div class="mx-auto w-full max-w-6xl px-6 md:px-12 lg:px-16">
     <Title href={href} label={label} kicker="02 — About." />
     <div class="mt-12 grid grid-cols-1 items-start gap-12 md:grid-cols-12 md:gap-10">
-      <div class="order-2 md:order-1 md:col-span-4">
-        <figure class="max-w-sm overflow-hidden border border-[var(--color-rule)] bg-[var(--color-paper-2)] md:max-w-none">
-          <img
-            class="aspect-[4/5] w-full object-cover"
-            src={avatar}
-            alt="Portrait"
-            height={640}
-            width={512}
-            loading="lazy"
-            decoding="async"
-          />
-        </figure>
+      <div class="order-2 flex justify-center md:order-1 md:col-span-4 md:justify-start md:pt-1">
+        {useBrandMark ? (
+          <div class="flex items-start justify-center p-4 md:p-2" aria-hidden="false">
+            <MateMark />
+          </div>
+        ) : (
+          <figure class="max-w-sm overflow-hidden border border-[var(--color-rule)] bg-[var(--color-paper-2)] md:max-w-none">
+            <img
+              class="aspect-[4/5] w-full object-cover"
+              src={avatar}
+              alt="Portrait"
+              height={640}
+              width={512}
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        )}
       </div>
       <div class="order-1 min-w-0 md:order-2 md:col-span-8">
         <Article content={content} />
