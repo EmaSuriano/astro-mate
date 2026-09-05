@@ -1,41 +1,22 @@
 ---
 import type { Article } from "../types";
 
-type Props = {
-  article: Article;
-};
+type Props = { article: Article };
 
 const { article } = Astro.props;
 ---
 
-<a
-  class="card w-full bg-base-200 shadow-xl link link-primary link-card transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-105 duration-200 hover:shadow-2xl"
-  href={article.url}
-  target="_blank"
->
-  <div class="card-body text-base-content">
-    <h2 class="card-title">{article.title}</h2>
-    <p style="">{article.description}</p>
+<a class="card link-card w-full border border-[var(--color-rule)] bg-[var(--color-paper-2)] shadow-sm transition duration-200 ease-in-out hover:-translate-y-1 hover:scale-105 hover:shadow-md" href={article.url} target="_blank" rel="noopener noreferrer">
+  <div class="card-body text-[var(--color-ink)]">
+    <h2 class="card-title font-sans text-lg">{article.title}</h2>
+    <p class="text-sm text-[var(--color-muted)]">{article.description}</p>
   </div>
   <figure class="aspect-[18/10] w-full overflow-hidden">
-    <img
-      src={article.social_image}
-      alt={article.title}
-      height={250}
-      width={450}
-      class="h-[250px] w-full object-cover"
-      loading="lazy"
-      decoding="async"
-    />
+    <img src={article.social_image} alt={article.title} height={250} width={450} class="h-full w-full object-cover" loading="lazy" decoding="async" />
   </figure>
 </a>
 
 <style>
-  .link-card {
-    text-decoration-line: none;
-  }
-
-  .link-card:hover .card-title {
-    text-decoration-line: underline;
-  }
+  .link-card { text-decoration-line: none; }
+  .link-card:hover .card-title { text-decoration-line: underline; }
 </style>

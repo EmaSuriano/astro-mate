@@ -1,44 +1,23 @@
 ---
 import type { Project } from "../types";
 
-type Props = {
-  project: Project;
-};
+type Props = { project: Project };
 
 const { project } = Astro.props;
 ---
 
-<a
-  class="card w-full bg-base-200 shadow-xl link link-primary link-card transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-105 duration-200 hover:shadow-2xl"
-  href={project.href}
-  target="_blank"
->
+<a class="card link-card w-full border border-[var(--color-rule)] bg-[var(--color-paper-2)] shadow-sm transition duration-200 ease-in-out hover:-translate-y-1 hover:scale-105 hover:shadow-md" href={project.href} target="_blank" rel="noopener noreferrer">
   <figure class="relative aspect-[18/10] w-full overflow-hidden">
-    <img
-      src={project.cover}
-      alt={`Cover of ${project.name}`}
-      height={250}
-      width={450}
-      class="h-[250px] w-full object-cover"
-      loading="lazy"
-      decoding="async"
-    />
-    <span class="badge absolute top-3 right-3">
-      {project.yearReleased}
-    </span>
+    <img src={project.cover} alt={`Cover of ${project.name}`} height={250} width={450} class="h-full w-full object-cover" loading="lazy" decoding="async" />
+    <span class="badge absolute right-3 top-3 border-0 bg-base-100/90 text-base-content">{project.yearReleased}</span>
   </figure>
-  <div class="card-body text-base-content">
-    <h2 class="card-title">{project.name}</h2>
-    <p style="">{project.description}</p>
+  <div class="card-body text-[var(--color-ink)]">
+    <h2 class="card-title font-sans text-lg">{project.name}</h2>
+    <p class="text-sm text-[var(--color-muted)]">{project.description}</p>
   </div>
 </a>
 
 <style>
-  .link-card {
-    text-decoration-line: none;
-  }
-
-  .link-card:hover .card-title {
-    text-decoration-line: underline;
-  }
+  .link-card { text-decoration-line: none; }
+  .link-card:hover .card-title { text-decoration-line: underline; }
 </style>

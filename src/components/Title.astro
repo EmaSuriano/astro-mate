@@ -6,24 +6,18 @@ type Props = Link;
 const { href, label } = Astro.props;
 ---
 
-<h2 class="text-4xl">
-  <a class="relative pb-0.5" href={href}>
-    {label}
-  </a>
+<h2 class="font-display text-4xl text-[var(--color-ink)] md:text-5xl">
+  <a class="section-title-link relative pb-1" href={href}>{label}</a>
 </h2>
 
 <style>
   @reference "../styles/global.css";
-
-  a::after {
-    @apply bg-secondary absolute bottom-0 left-0 inset-x-0 h-1 rounded opacity-0;
-    content: "";
+  .section-title-link::after {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 2px; border-radius: 9999px;
+    background-color: var(--color-accent); content: ""; opacity: 0;
     transition: opacity 300ms, transform 300ms;
   }
-
-  a:hover::after,
-  a:focus::after {
-    @apply opacity-100;
-    transform: translate3d(0, 0.2em, 0);
+  .section-title-link:hover::after, .section-title-link:focus::after {
+    opacity: 1; transform: translate3d(0, 0.15em, 0);
   }
 </style>

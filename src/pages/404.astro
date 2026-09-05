@@ -1,30 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Triangle from "../components/Triangle.astro";
 ---
 
 <Layout title="404 — Not found">
-  <section class="hero relative min-h-screen">
-    <Triangle
-      className="bg-accent h-[35vh] w-[95vw] md:h-[80vh] md:w-[60vw]"
-      position="top-left"
-    />
-    <Triangle
-      className="bg-primary h-[25vh] w-[75vw] md:h-[35vh] md:w-[60vw]"
-      position="top-right"
-    />
-    <Triangle
-      className="bg-secondary h-[20vh] w-[50vw]"
-      position="bottom-right"
-    />
-    <div class="hero-content z-10 text-center">
-      <div class="max-w-lg">
-        <h1 class="text-8xl font-bold text-primary md:text-9xl">404</h1>
-        <h2 class="mt-4 text-3xl font-semibold text-secondary md:text-4xl">
-          There isn&apos;t anything here
-        </h2>
-        <a class="btn btn-primary mt-8" href="/">Back home</a>
-      </div>
+  <section class="section-shell relative flex min-h-screen items-center justify-center overflow-hidden px-6">
+    <div class="hero-atmosphere pointer-events-none absolute inset-0" aria-hidden="true">
+      <div class="hero-spotlight"></div>
+      <div class="hero-grain"></div>
+    </div>
+    <div class="relative z-10 max-w-lg text-center">
+      <h1 class="font-display text-8xl md:text-9xl">404</h1>
+      <h2 class="mt-4 text-2xl text-[var(--color-muted)] md:text-3xl">There isn&apos;t anything here</h2>
+      <a class="btn btn-primary mt-10" href="/">Back home</a>
     </div>
   </section>
 </Layout>

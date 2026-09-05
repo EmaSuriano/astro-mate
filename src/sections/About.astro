@@ -1,7 +1,6 @@
 ---
 import Article from "../components/Article.astro";
 import Title from "../components/Title.astro";
-import Triangle from "../components/Triangle.astro";
 import { getSectionLink } from "../helpers/sections";
 import type { Config } from "../types";
 
@@ -16,38 +15,14 @@ const { label, href } = getSectionLink(SECTION_ID);
 const content = await fetch(aboutMe).then((res) => res.text());
 ---
 
-<section class="hero min-h-screen relative" id={SECTION_ID}>
-  <Triangle
-    className="bg-secondary w-[50vw] h-[50vh] md:h-[20vh]"
-    position="bottom-left"
-  />
-
-  <Triangle
-    className="bg-primary w-[75vw] h-[20vh] md:w-[70vw] md:h-[40vh]"
-    position="top-right"
-  />
-
-  <Triangle
-    className="bg-accent w-[100vw] h-[25vh] md:h-[20vh]"
-    position="top-left"
-  />
-
-  <div class="hero-content flex-col lg:flex-row m-4 max-w-screen-xl z-10">
-    <div class="flex flex-col gap-8">
+<section class="section-shell min-h-screen py-20 md:py-28" id={SECTION_ID}>
+  <div class="mx-auto flex w-full max-w-6xl flex-col items-start gap-12 px-6 md:flex-row md:gap-16 md:px-12 lg:px-16">
+    <div class="flex min-w-0 flex-1 flex-col gap-8">
       <Title href={href} label={label} />
       <Article content={content} />
     </div>
-
-    <div class="avatar w-72 m-10">
-      <img
-        class="transition-all rounded-full ring-accent hover:ring-8 hover:scale-105"
-        src={avatar}
-        alt="Avatar"
-        height={400}
-        width={400}
-        loading="lazy"
-        decoding="async"
-      />
+    <div class="avatar mx-auto w-56 shrink-0 md:mx-0 md:w-72">
+      <img class="rounded-full ring-1 ring-[var(--color-rule)] transition-all hover:ring-4 hover:ring-[var(--color-accent)] hover:scale-105" src={avatar} alt="Avatar" height={400} width={400} loading="lazy" decoding="async" />
     </div>
   </div>
 </section>

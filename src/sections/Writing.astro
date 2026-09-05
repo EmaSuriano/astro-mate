@@ -1,7 +1,6 @@
 ---
 import ArticleCard from "../components/ArticleCard.astro";
 import Title from "../components/Title.astro";
-import Triangle from "../components/Triangle.astro";
 import { getSectionLink } from "../helpers/sections";
 import type { Config } from "../types";
 import { articleListSchema } from "../validator";
@@ -14,36 +13,14 @@ const { devToUser } = Astro.props;
 
 const { label, href } = getSectionLink(SECTION_ID);
 
-const articles = await fetch(
-  `https://dev.to/api/articles?username=${devToUser}&per_page=6`
-)
-  .then((res) => res.json())
-  .then(articleListSchema.parse);
+const articles = await fetch(`https://dev.to/api/articles?username=${devToUser}&per_page=6`).then((res) => res.json()).then(articleListSchema.parse);
 ---
 
-<section class="relative hero min-h-screen" id="writing">
-  <Triangle
-    className="bg-accent w-[100vw] h-[15vh] md:h-[10vh]"
-    position="top-left"
-  />
-  <Triangle
-    className="bg-secondary w-[70vw] h-[50vh] md:w-[40vw] md:h-[40vh]"
-    position="bottom-left"
-  />
-  <Triangle
-    className="bg-primary w-[100vw] h-[40vh] md:h-[15vh]"
-    position="bottom-right"
-  />
-
-  <div class="hero-content max-w-screen-xl z-10">
-    <div class="flex flex-col gap-8">
-      <Title href={href} label={label} />
-
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-4 lg:gap-8"
-      >
-        {articles.map((article) => <ArticleCard article={article} />)}
-      </div>
+<section class="section-shell min-h-screen py-20 md:py-28" id="writing">
+  <div class="mx-auto flex w-full max-w-6xl flex-col gap-10 px-6 md:px-12 lg:px-16">
+    <Title href={href} label={label} />
+    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8">
+      {articles.map((article) => <ArticleCard article={article} />)}
     </div>
   </div>
 </section>

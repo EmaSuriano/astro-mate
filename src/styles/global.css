@@ -4,54 +4,78 @@
   themes: light --default, dark --prefersdark;
 }
 
+@theme {
+  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-sans: "Geist", "Geist Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-paper: oklch(97% 0.008 250);
+  --color-paper-2: oklch(94% 0.01 250);
+  --color-rule: oklch(86% 0.01 250);
+  --color-muted: oklch(48% 0.02 260);
+  --color-ink: oklch(22% 0.02 260);
+  --color-accent: oklch(55% 0.14 250);
+  --color-focus: oklch(52% 0.15 250);
+  --color-spotlight: oklch(70% 0.1 250 / 0.22);
+}
+
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
   color-scheme: light;
-  --color-primary: #7c37ad;
-  --color-primary-content: #ffffff;
-  --color-secondary: #ff4081;
-  --color-secondary-content: #ffffff;
-  --color-accent: #f0e6f6;
-  --color-accent-content: #3b0764;
+  --color-base-100: oklch(97% 0.008 250);
+  --color-base-200: oklch(94% 0.01 250);
+  --color-base-300: oklch(86% 0.01 250);
+  --color-base-content: oklch(22% 0.02 260);
+  --color-primary: oklch(55% 0.14 250);
+  --color-primary-content: oklch(97% 0.008 250);
+  --color-secondary: oklch(48% 0.02 260);
+  --color-secondary-content: oklch(97% 0.008 250);
+  --color-accent: oklch(52% 0.15 250);
+  --color-accent-content: oklch(97% 0.008 250);
+  --color-neutral: oklch(22% 0.02 260);
+  --color-neutral-content: oklch(97% 0.008 250);
 }
 
 @plugin "daisyui/theme" {
   name: "dark";
   prefersdark: true;
   color-scheme: dark;
-  --color-primary: #bb86fc;
-  --color-primary-content: #1a1025;
-  --color-secondary: #ff80ab;
-  --color-secondary-content: #3b0018;
-  --color-accent: #2d1b3d;
-  --color-accent-content: #f0e6f6;
+  --color-base-100: oklch(14% 0.02 260);
+  --color-base-200: oklch(18% 0.024 260);
+  --color-base-300: oklch(32% 0.02 260);
+  --color-base-content: oklch(95% 0.01 250);
+  --color-primary: oklch(75% 0.12 250);
+  --color-primary-content: oklch(14% 0.02 260);
+  --color-secondary: oklch(72% 0.02 250);
+  --color-secondary-content: oklch(14% 0.02 260);
+  --color-accent: oklch(78% 0.12 250);
+  --color-accent-content: oklch(14% 0.02 260);
+  --color-neutral: oklch(95% 0.01 250);
+  --color-neutral-content: oklch(14% 0.02 260);
+}
+
+[data-theme="dark"] {
+  --color-paper: oklch(14% 0.02 260);
+  --color-paper-2: oklch(18% 0.024 260);
+  --color-rule: oklch(32% 0.02 260);
+  --color-muted: oklch(72% 0.02 250);
+  --color-ink: oklch(95% 0.01 250);
+  --color-accent: oklch(75% 0.12 250);
+  --color-focus: oklch(78% 0.12 250);
+  --color-spotlight: oklch(60% 0.12 250 / 0.28);
 }
 
 html {
   scroll-behavior: smooth;
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-sans);
   overflow-x: hidden;
-}
-
-
-/* Soft spotlight hero atmosphere (landing only) */
-:root {
-  --color-spotlight: oklch(70% 0.1 250 / 0.22);
-}
-
-[data-theme="dark"] {
-  --color-spotlight: oklch(60% 0.12 250 / 0.28);
+  color: var(--color-ink);
+  background-color: var(--color-paper);
 }
 
 .hero-spotlight {
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    90% 70% at 0% 0%,
-    var(--color-spotlight),
-    transparent 72%
-  );
+  background: radial-gradient(90% 70% at 0% 0%, var(--color-spotlight), transparent 72%);
 }
 
 .hero-grain {
@@ -66,4 +90,16 @@ html {
 [data-theme="dark"] .hero-grain {
   opacity: 0.07;
   mix-blend-mode: soft-light;
+}
+
+.section-shell {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+}
+
+.section-shell + .section-shell {
+  border-top: 1px solid var(--color-rule);
 }
