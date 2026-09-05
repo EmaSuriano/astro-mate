@@ -1,5 +1,4 @@
 ---
-import ArticleCard from "../components/ArticleCard.astro";
 import Title from "../components/Title.astro";
 import { getSectionLink } from "../helpers/sections";
 import type { Config } from "../types";
@@ -13,14 +12,31 @@ const { devToUser } = Astro.props;
 
 const { label, href } = getSectionLink(SECTION_ID);
 
-const articles = await fetch(`https://dev.to/api/articles?username=${devToUser}&per_page=6`).then((res) => res.json()).then(articleListSchema.parse);
+const articles = await fetch(`https://dev.to/api/articles?username=${devToUser}&per_page=6`)
+  .then((res) => res.json())
+  .then(articleListSchema.parse);
 ---
 
-<section class="section-shell min-h-screen py-20 md:py-28" id="writing">
-  <div class="mx-auto flex w-full max-w-6xl flex-col gap-10 px-6 md:px-12 lg:px-16">
-    <Title href={href} label={label} />
-    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8">
-      {articles.map((article) => <ArticleCard article={article} />)}
-    </div>
+<section class="section-shell py-24 md:py-32" id="writing">
+  <div class="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 md:px-12 lg:px-16">
+    <Title href={href} label={label} kicker="04 — Writing." />
+    <ul class="editorial-index">
+      {articles.map((article) => (
+        <li>
+          <a class="index-row" href={article.url} target="_blank" rel="noopener noreferrer">
+            <span class="index-year font-ui">
+              {article.published_at
+                ? new Date(article.published_at).getFullYear()
+                : "—"}
+            </span>
+            <span class="index-body">
+              <span class="index-title font-display">{article.title}</span>
+              <span class="index-dek font-serif">{article.description}</span>
+            </span>
+            <span class="index-action font-ui">Read →</span>
+          </a>
+        </li>
+      ))}
+    </ul>
   </div>
 </section>

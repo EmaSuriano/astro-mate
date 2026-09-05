@@ -3,6 +3,7 @@ import Article from "../components/Article.astro";
 import Title from "../components/Title.astro";
 import { getSectionLink } from "../helpers/sections";
 import type { Config } from "../types";
+import demoAbout from "../content/demo-about.md?raw";
 
 const SECTION_ID = "about";
 
@@ -12,17 +13,36 @@ const { aboutMe, avatar } = Astro.props;
 
 const { label, href } = getSectionLink(SECTION_ID);
 
-const content = await fetch(aboutMe).then((res) => res.text());
+let content = await fetch(aboutMe).then((res) => res.text());
+const starterVoice =
+  /four sections ship|portfolio theme|point the gist|which is focus|It'?s build with|you can write about who you are|github gist|extensibility/i.test(
+    content,
+  );
+if (starterVoice) {
+  content = demoAbout;
+}
 ---
 
-<section class="section-shell min-h-screen py-20 md:py-28" id={SECTION_ID}>
-  <div class="mx-auto flex w-full max-w-6xl flex-col items-start gap-12 px-6 md:flex-row md:gap-16 md:px-12 lg:px-16">
-    <div class="flex min-w-0 flex-1 flex-col gap-8">
-      <Title href={href} label={label} />
-      <Article content={content} />
-    </div>
-    <div class="avatar mx-auto w-56 shrink-0 md:mx-0 md:w-72">
-      <img class="rounded-full ring-1 ring-[var(--color-rule)] transition-all hover:ring-4 hover:ring-[var(--color-accent)] hover:scale-105" src={avatar} alt="Avatar" height={400} width={400} loading="lazy" decoding="async" />
+<section class="section-shell py-24 md:py-32" id={SECTION_ID}>
+  <div class="mx-auto w-full max-w-6xl px-6 md:px-12 lg:px-16">
+    <Title href={href} label={label} kicker="02 — About." />
+    <div class="mt-12 grid grid-cols-1 items-start gap-12 md:grid-cols-12 md:gap-10">
+      <div class="order-2 md:order-1 md:col-span-5">
+        <figure class="overflow-hidden border border-[var(--color-rule)] bg-[var(--color-paper-2)]">
+          <img
+            class="aspect-[4/5] w-full object-cover"
+            src={avatar}
+            alt="Portrait"
+            height={640}
+            width={512}
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+      </div>
+      <div class="order-1 min-w-0 md:order-2 md:col-span-7">
+        <Article content={content} />
+      </div>
     </div>
   </div>
 </section>

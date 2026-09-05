@@ -1,6 +1,5 @@
 ---
 import Title from "../components/Title.astro";
-import ProjectCard from "../components/ProjectCard.astro";
 import type { Config } from "../types";
 import { getSectionLink } from "../helpers/sections";
 
@@ -13,11 +12,22 @@ const { projects } = Astro.props;
 const { label, href } = getSectionLink(SECTION_ID);
 ---
 
-<section class="section-shell min-h-screen py-20 md:py-28" id={SECTION_ID}>
-  <div class="mx-auto flex w-full max-w-6xl flex-col gap-10 px-6 md:px-12 lg:px-16">
-    <Title href={href} label={label} />
-    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8">
-      {projects.map((project) => <ProjectCard project={project} />)}
-    </div>
+<section class="section-shell py-24 md:py-32" id={SECTION_ID}>
+  <div class="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 md:px-12 lg:px-16">
+    <Title href={href} label={label} kicker="03 — Work." />
+    <ul class="editorial-index">
+      {projects.map((project) => (
+        <li>
+          <a class="index-row" href={project.href} target="_blank" rel="noopener noreferrer">
+            <span class="index-year font-ui">{project.yearReleased}</span>
+            <span class="index-body">
+              <span class="index-title font-display">{project.name}</span>
+              <span class="index-dek font-serif">{project.description}</span>
+            </span>
+            <span class="index-action font-ui">View →</span>
+          </a>
+        </li>
+      ))}
+    </ul>
   </div>
 </section>
