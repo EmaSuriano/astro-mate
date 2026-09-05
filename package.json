@@ -12,12 +12,13 @@
     "clean": "npx rimraf dist"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@netlify/plugin-lighthouse": "^6.0.4",
     "@types/node": "^22.20.1",
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
     "ts-to-zod": "^3.0.0",
-    "typescript": "^5.9.3",
-    "@astrojs/check": "^0.9.10"
+    "typescript": "^5.9.3"
   },
   "dependencies": {
     "@iconify-json/ri": "^1.2.5",
