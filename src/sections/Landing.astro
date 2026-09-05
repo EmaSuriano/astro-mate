@@ -1,56 +1,52 @@
 ---
 import { Icon } from "astro-icon/components";
 import ScrollIcon from "../components/ScrollIcon.astro";
-import TextLoop from "../components/TextLoop.astro";
-import Triangle from "../components/Triangle.astro";
 import type { Config } from "../types";
 
 type Props = Pick<Config, "name" | "roles" | "social">;
 
 const { name, roles, social } = Astro.props;
-
-const words = roles.sort(() => Math.random());
+const rolesLine = roles.join(" · ");
 ---
 
-<section class="relative hero min-h-screen" id="home">
-  <Triangle
-    className="bg-accent w-[95vw] h-[35vh] md:w-[60vw] md:h-[80vh]"
-    position="top-left"
-  />
-  <Triangle
-    className="bg-secondary w-[50vw] h-[38vh] md:w-[35vw] md:h-[80vh]"
-    position="top-left"
-  />
-  <Triangle
-    className="bg-primary w-[75vw] h-[25vh] md:w-[60vw] md:h-[35vh]"
-    position="top-right"
-  />
-  <Triangle className="bg-accent w-[100vw] h-[20vh]" position="bottom-right" />
+<section
+  class="relative isolate min-h-[85vh] overflow-hidden bg-base-100"
+  id="home"
+>
+  <div class="hero-atmosphere pointer-events-none absolute inset-0" aria-hidden="true">
+    <div class="hero-spotlight"></div>
+    <div class="hero-grain"></div>
+  </div>
 
-  <div class="hero-content text-center text-primary z-10">
-    <div class="max-w-md flex flex-col space-y-8">
-      <h1 class="text-5xl font-bold">Hello, I'm {name}!</h1>
-      <h2 class="text-4xl font-bold">
-        <TextLoop words={words} />
-      </h2>
-      <div class="flex justify-center gap-4">
+  <div
+    class="relative z-10 mx-auto flex min-h-[85vh] w-full max-w-6xl flex-col justify-center px-6 py-24 md:px-12 lg:px-16"
+  >
+    <div class="max-w-2xl text-left">
+      <h1 class="font-serif text-5xl font-normal tracking-tight text-base-content md:text-6xl lg:text-7xl">
+        Hello, I&apos;m {name}
+      </h1>
+      <p class="mt-5 text-lg text-base-content/55 md:text-xl">
+        {rolesLine}
+      </p>
+      <ul class="mt-10 flex flex-wrap items-center gap-x-5 gap-y-3">
         {
           social.map((link) => (
-            <div class="tooltip tooltip-bottom" data-tip={link.label}>
+            <li>
               <a
-                class="btn btn-link btn-primary btn-circle"
+                class="inline-flex items-center gap-2 text-sm text-base-content/65 transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                 href={link.href}
                 aria-label={link.label}
               >
-                <Icon name={link.icon} class="w-10 h-10" />
+                <Icon name={link.icon} class="h-4 w-4" aria-hidden="true" />
+                <span>{link.label}</span>
               </a>
-            </div>
+            </li>
           ))
         }
-      </div>
+      </ul>
     </div>
 
-    <div class="absolute bottom-0 inset-x-0 mb-14">
+    <div class="absolute bottom-10 left-6 md:left-12 lg:left-16">
       <ScrollIcon href="#about" />
     </div>
   </div>
