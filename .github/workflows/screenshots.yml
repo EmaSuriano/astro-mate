@@ -14,6 +14,7 @@ concurrency:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   capture:
@@ -91,6 +92,8 @@ jobs:
           ls -la screenshots/
 
       - name: Commit if changed
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -99,5 +102,12 @@ jobs:
             echo "No screenshot changes"
             exit 0
           fi
-          git commit -m "chore: refresh README screenshots [skip ci]"
-          git push
+          git checkout -B chore/update-screenshots
+          git commit -m "chore: refresh README screenshots"
+          git push -u origin HEAD --force
+          if ! gh pr list --head chore/update-screenshots --base master --state open --json number --jq '.[0].number' | grep -q .
+          then
+            gh pr create --base master --head chore/update-screenshots \
+              --title "chore: refresh README screenshots" \
+              --body "Automated README screenshot refresh from the Screenshots workflow."
+          fi
