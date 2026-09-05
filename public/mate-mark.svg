@@ -1,24 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" role="img" aria-labelledby="mateTitle">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 325 430" fill="none" role="img" aria-labelledby="mateTitle">
   <title id="mateTitle">Mate</title>
-  <!-- Brand mark: mate gourd + bombilla. currentColor tracks --color-ink -->
-  <g fill="currentColor">
-    <!-- steam -->
-    <circle cx="78" cy="42" r="7"/>
-    <circle cx="98" cy="28" r="9"/>
-    <circle cx="118" cy="40" r="6"/>
-  </g>
-  <g stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none">
-    <!-- bombilla -->
-    <path d="M118 78 L158 38"/>
-    <path d="M150 36 h16" stroke-width="10"/>
-    <!-- rim -->
-    <ellipse cx="100" cy="88" rx="42" ry="16"/>
-    <!-- body -->
-    <path d="M58 88
-             C58 88 56 130 70 152
-             C82 170 118 170 130 152
-             C144 130 142 88 142 88"/>
-    <!-- foot hint -->
-    <path d="M86 164 C92 172 108 172 114 164" stroke-width="10"/>
+  <!-- Traced from original demo avatar (pink tile removed). Fills use currentColor. -->
+  <g transform="translate(30,30)" fill="currentColor" stroke="none">
+    <g transform="translate(0,370) scale(0.1,-0.1)">
+      <path d="M2054 3597 c-31 -27 -41 -69 -209 -852 -53 -247 -98 -458 -101 -467 -5 -17 -47 -18 -687 -18 -728 0 -711 1 -749 -50 -27 -37 -112 -278 -147 -416 -58 -230 -75 -358 -75 -589 -1 -162 3 -229 16 -296 39 -188 121 -383 233 -556 67 -103 167 -227 199 -249 20 -12 135 -15 789 -17 l766 -2 41 40 c74 71 197 244 259 365 74 143 123 276 153 412 44 208 23 551 -54 873 -34 145 -96 332 -134 407 -36 71 -58 78 -252 78 -87 0 -161 2 -164 6 -3 3 5 55 19 117 49 224 165 777 203 965 42 205 42 226 -2 256 -32 23 -72 20 -104 -7z m140 -1533 c17 -6 92 -221 81 -232 -9 -9 -1715 -15 -1822 -7 -73 6 -83 9 -83 26 0 29 67 201 82 210 15 10 1718 12 1742 3z m141 -436 c15 -44 37 -248 42 -390 7 -199 -3 -273 -58 -446 l-40 -122 -956 2 -956 3 -24 65 c-66 176 -88 344 -73 575 5 83 16 189 26 238 l16 87 1009 0 c799 0 1011 -3 1014 -12z m-180 -1160 c4 -3 -25 -49 -64 -102 l-71 -96 -698 0 -699 0 -71 96 c-40 52 -72 100 -72 105 0 12 1664 9 1675 -3z"/>
+      <path d="M1195 3476 c-48 -21 -93 -79 -100 -129 -17 -113 95 -217 203 -188 79 22 124 80 125 162 2 115 -124 200 -228 155z"/>
+      <path d="M680 3168 c-26 -14 -57 -41 -75 -66 -26 -38 -30 -53 -30 -110 0 -78 19 -118 77 -165 29 -23 51 -31 92 -35 87 -7 123 4 171 52 130 130 42 346 -140 346 -33 0 -67 -8 -95 -22z"/>
+      <path d="M1231 2745 c-16 -14 -35 -41 -41 -60 -15 -46 1 -96 41 -130 86 -72 218 19 188 128 -22 82 -124 115 -188 62z"/>
+    </g>
   </g>
 </svg>
