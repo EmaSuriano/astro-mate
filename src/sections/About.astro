@@ -15,7 +15,9 @@ const { label, href } = getSectionLink(SECTION_ID);
 
 let content = await fetch(aboutMe).then((res) => res.text());
 const starterVoice =
-  /which is focus|It'?s build with|you can write about who you are/i.test(content);
+  /four sections ship|portfolio theme|point the gist|which is focus|It'?s build with|you can write about who you are|github gist|extensibility/i.test(
+    content,
+  );
 if (starterVoice) {
   content = demoAbout;
 }
