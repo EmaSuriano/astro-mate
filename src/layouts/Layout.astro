@@ -3,9 +3,17 @@ import "../styles/global.css";
 
 export interface Props {
   title: string;
+  description?: string;
+  image?: string;
 }
 
-const { title } = Astro.props;
+const { title, description, image } = Astro.props;
+const canonical = Astro.site
+  ? new URL(Astro.url.pathname, Astro.site).href
+  : Astro.url.href;
+const metaDescription =
+  description ??
+  "An accessible and fast portfolio starter for Astro — for developers and tech writers.";
 ---
 
 <!doctype html>
@@ -14,23 +22,49 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="canonical" href={canonical} />
     <title>{title}</title>
+    <meta name="description" content={metaDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:url" content={canonical} />
+    {image && <meta property="og:image" content={image} />}
+    <meta
+      name="twitter:card"
+      content={image ? "summary_large_image" : "summary"}
+    />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={metaDescription} />
+    {image && <meta name="twitter:image" content={image} />}
     <script is:inline>
       (function () {
         function applyTheme(theme) {
           document.documentElement.setAttribute("data-theme", theme);
-          try { localStorage.setItem("theme", theme); } catch (e) {}
+          try {
+            localStorage.setItem("theme", theme);
+          } catch (e) {}
           var input = document.querySelector("input.theme-controller");
           if (input) input.checked = theme === "dark";
         }
         var stored = null;
-        try { stored = localStorage.getItem("theme"); } catch (e) {}
-        var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        var theme = stored === "light" || stored === "dark" ? stored : prefersDark ? "dark" : "light";
+        try {
+          stored = localStorage.getItem("theme");
+        } catch (e) {}
+        var prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+        var theme =
+          stored === "light" || stored === "dark"
+            ? stored
+            : prefersDark
+              ? "dark"
+              : "light";
         applyTheme(theme);
         document.addEventListener("change", function (event) {
           var t = event.target;
-          if (!t || !t.classList || !t.classList.contains("theme-controller")) return;
+          if (!t || !t.classList || !t.classList.contains("theme-controller"))
+            return;
           applyTheme(t.checked ? "dark" : "light");
         });
       })();
