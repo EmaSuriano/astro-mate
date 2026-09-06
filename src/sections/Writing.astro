@@ -21,8 +21,8 @@ const articles = await fetch(`https://dev.to/api/articles?username=${devToUser}&
   <div class="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 md:px-12 lg:px-16">
     <Title href={href} label={label} kicker="04 — Writing." />
     <ul class="editorial-index">
-      {articles.map((article) => (
-        <li>
+      {articles.map((article, i) => (
+        <li data-reveal="down" style={`--reveal-delay: ${i * 90}ms`}>
           <a class="index-row" href={article.url} target="_blank" rel="noopener noreferrer">
             <span class="index-year font-ui">
               {article.published_at

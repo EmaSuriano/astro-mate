@@ -76,5 +76,42 @@ const metaDescription =
   </head>
   <body class="bg-base-100 text-base-content overflow-x-hidden font-serif antialiased">
     <slot />
+    <script is:inline>
+      (function () {
+        function revealAll(els) {
+          for (var i = 0; i < els.length; i++) {
+            els[i].setAttribute("data-revealed", "");
+          }
+        }
+        function initReveal() {
+          var els = document.querySelectorAll("[data-reveal]:not([data-revealed])");
+          if (!els.length) return;
+          if (
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+            !("IntersectionObserver" in window)
+          ) {
+            revealAll(els);
+            return;
+          }
+          var io = new IntersectionObserver(
+            function (entries) {
+              for (var i = 0; i < entries.length; i++) {
+                var entry = entries[i];
+                if (!entry.isIntersecting) continue;
+                entry.target.setAttribute("data-revealed", "");
+                io.unobserve(entry.target);
+              }
+            },
+            { rootMargin: "0px 0px -10% 0px", threshold: 0.12 },
+          );
+          for (var j = 0; j < els.length; j++) io.observe(els[j]);
+        }
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", initReveal);
+        } else {
+          initReveal();
+        }
+      })();
+    </script>
   </body>
 </html>
