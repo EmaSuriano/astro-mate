@@ -20,16 +20,25 @@ const { aboutMe, avatar } = Astro.props;
 
 const { label, href } = getSectionLink(SECTION_ID);
 
-let content = await fetch(aboutMe).then((res) => res.text());
-const starterVoice =
-  /four sections ship|portfolio theme|point the gist|which is focus|It'?s build with|you can write about who you are|github gist|extensibility/i.test(
-    content,
-  );
-if (starterVoice) {
-  content = demoAbout;
+const useDemoAbout =
+  aboutMe.includes("example.com") ||
+  aboutMe.includes("example.org");
+
+let content = demoAbout;
+if (!useDemoAbout) {
+  content = await fetch(aboutMe).then((res) => res.text());
+  const starterVoice =
+    /four sections ship|portfolio theme|point the gist|which is focus|It'?s build with|you can write about who you are|github gist|extensibility/i.test(
+      content,
+    );
+  if (starterVoice) {
+    content = demoAbout;
+  }
 }
 
-const useBrandMark = DEMO_AVATAR_MARKERS.some((marker) => avatar.includes(marker));
+const useBrandMark =
+  DEMO_AVATAR_MARKERS.some((marker) => avatar.includes(marker)) ||
+  avatar.includes("example.com");
 ---
 
 <section class="section-shell py-24 md:py-32" id={SECTION_ID}>

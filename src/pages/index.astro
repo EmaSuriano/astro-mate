@@ -8,13 +8,19 @@ import Writing from "../sections/Writing.astro";
 import Footer from "../components/Footer.astro";
 import { configSchema } from "../validator";
 import { getSections } from "../helpers/sections";
+import demoProfile from "../content/demo-profile.json";
 
-const CONFIG_URL =
-  "https://gist.githubusercontent.com/EmaSuriano/ca34cb6f89c7436e256eeed5854f625d/raw/mate-profile.json";
+/**
+ * Theme demo ships a catalogue-safe local profile (root-domain socials, no personal handles).
+ * Optional override: set `MATE_CONFIG_URL` to a Gist raw JSON URL for your own content.
+ */
+const configUrl = import.meta.env.MATE_CONFIG_URL as string | undefined;
 
-const config = await fetch(CONFIG_URL)
-  .then((res) => res.json())
-  .then(configSchema.parse);
+const config = configUrl
+  ? await fetch(configUrl)
+      .then((res) => res.json())
+      .then(configSchema.parse)
+  : configSchema.parse(demoProfile);
 
 const sections = getSections(config);
 ---
