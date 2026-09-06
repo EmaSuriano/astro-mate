@@ -31,17 +31,27 @@ Astro Mate is the successor to the Gatsby starter. Same portfolio shape (Landing
 | Font Awesome | Iconify |
 | `gatsby new` | Clone this repo / use as Astro template |
 
-### Contentful to Gist
+### Demo content (Astro Theme Catalogue)
 
-1. Export about / projects / socials from Contentful (or copy from the live site).
-2. Create a public Gist with JSON matching `src/types.ts` (see the demo Gist used by the Netlify site).
-3. Point `CONFIG_URL` in `src/pages/index.astro` at that Gist raw URL.
+The shipped demo uses `src/content/demo-profile.json` — generic placeholder content only.
+
+For catalogue compliance ([theme submission guide](https://hackmd.io/@sarah11918/BkbTYCRQze)):
+
+- Social links must be **root domains** (e.g. `https://github.com`, `https://twitter.com`) — never personal usernames or invented `@theme` handles.
+- Use `example.com` for any placeholder emails/URLs.
+- Do not ship real personal bios, projects, or Dev.to usernames in the public demo.
+
+### Contentful to Gist (optional)
+
+1. Export about / projects / socials from Contentful (or start from `src/content/demo-profile.json`).
+2. Create a public Gist with JSON matching `src/types.ts`.
+3. Set `MATE_CONFIG_URL` to that Gist raw URL (env at build time), or edit `demo-profile.json` in-repo.
 4. Redeploy. No Contentful space or API keys required.
 
-### Medium to Dev.to
+### Medium to Dev.to (optional)
 
 1. Publish (or cross-post) writing on Dev.to.
-2. Set `devToUser` in the Gist config JSON.
+2. Set `devToUser` in your config JSON (leave `null` to hide Writing).
 3. Astro Mate fetches posts from the Dev.to API at build time.
 
 After you are happy with Astro Mate, archive gatsby-starter-mate and point its README here.

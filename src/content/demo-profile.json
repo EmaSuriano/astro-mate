@@ -1,0 +1,47 @@
+{
+  "name": "Mate",
+  "roles": [
+    "Gist CMS",
+    "Responsive",
+    "Quick setup",
+    "Accessible"
+  ],
+  "social": [
+    {
+      "label": "Twitter",
+      "href": "https://twitter.com",
+      "icon": "ri:twitter-line"
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com",
+      "icon": "ri:github-line"
+    }
+  ],
+  "devToUser": null,
+  "aboutMe": "https://example.com/about",
+  "avatar": "https://user-images.githubusercontent.com/3399429/181063272-57826183-9f23-49cf-94f6-17a050818b89.png",
+  "projects": [
+    {
+      "name": "Astro",
+      "description": "Astro is a new kind of static site builder for the modern web. Powerful developer experience meets lightweight output.",
+      "cover": "https://user-images.githubusercontent.com/3399429/183965907-c11ac03c-9e08-4aab-9170-720e069426d0.png",
+      "yearReleased": 2021,
+      "href": "https://astro.build/"
+    },
+    {
+      "name": "DaisyUI",
+      "description": "The most popular, free and open-source Tailwind CSS component library",
+      "yearReleased": 2020,
+      "cover": "https://user-images.githubusercontent.com/3399429/183965915-f468c88c-2d23-403e-99bb-91e87264616e.png",
+      "href": "https://daisyui.com/"
+    },
+    {
+      "name": "Tailwind",
+      "description": "Rapidly build modern websites without ever leaving your HTML.",
+      "yearReleased": 2016,
+      "cover": "https://user-images.githubusercontent.com/3399429/183965935-f25f7170-9b2d-4f2f-920f-123385b34369.png",
+      "href": "https://tailwindcss.com/"
+    }
+  ]
+}
