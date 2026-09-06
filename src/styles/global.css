@@ -74,10 +74,20 @@ html {
   overflow-x: hidden;
   color: var(--color-ink);
   background-color: var(--color-paper);
+  width: 100%;
+  max-width: none;
 }
 
 body {
   font-family: var(--font-serif);
+  width: 100%;
+  max-width: none;
+}
+
+/* Hero full-bleed cover — paper edge-to-edge, no accidental side shell */
+#home {
+  width: 100%;
+  max-width: none;
 }
 
 .font-ui, .navbar, .menu, .btn, .badge {
@@ -96,6 +106,8 @@ body {
 
 .hero-double-rule {
   margin-top: 0.85rem;
+  width: 100%;
+  max-width: none;
   height: 5px;
   border-top: 1px solid var(--color-rule);
   border-bottom: 1px solid var(--color-rule);
@@ -310,8 +322,8 @@ html.js [data-reveal][data-revealed] {
 .hero-vignette {
   pointer-events: none;
   position: absolute;
-  right: -4rem;
-  bottom: -3rem;
+  right: 0;
+  bottom: 0;
   z-index: 0;
   width: min(28rem, 55vw);
   height: auto;
