@@ -269,8 +269,8 @@ body {
   }
 }
 
-/* Scroll reveal — modern stand-in for Gatsby react-awesome-reveal */
-[data-reveal] {
+/* Scroll reveal — only when JS is available (SEO-safe progressive enhancement) */
+html.js [data-reveal] {
   opacity: 0;
   transform: translate3d(0, 1.15rem, 0);
   transition:
@@ -280,25 +280,25 @@ body {
   will-change: opacity, transform;
 }
 
-[data-reveal="left"] {
+html.js [data-reveal="left"] {
   transform: translate3d(-1.35rem, 0, 0);
 }
 
-[data-reveal="right"] {
+html.js [data-reveal="right"] {
   transform: translate3d(1.35rem, 0, 0);
 }
 
-[data-reveal="down"] {
+html.js [data-reveal="down"] {
   transform: translate3d(0, -1.15rem, 0);
 }
 
-[data-reveal][data-revealed] {
+html.js [data-reveal][data-revealed] {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-reveal] {
+  html.js [data-reveal] {
     opacity: 1;
     transform: none;
     transition: none;
