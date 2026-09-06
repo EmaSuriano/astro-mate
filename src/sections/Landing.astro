@@ -20,6 +20,15 @@ const rolesLine = roles.map(stripEmoji).filter(Boolean).join(" · ");
   id="home"
 >
   <div class="hero-whisper" aria-hidden="true"></div>
+  <img
+    class="hero-vignette"
+    src="/vignette-corner.png"
+    alt=""
+    width="480"
+    height="480"
+    aria-hidden="true"
+    decoding="async"
+  />
 
   <div
     class="relative z-10 mx-auto flex min-h-[85vh] w-full max-w-6xl flex-col px-6 pb-24 pt-24 md:px-12 lg:px-16"
@@ -56,6 +65,9 @@ const rolesLine = roles.map(stripEmoji).filter(Boolean).join(" · ");
           >
             Continue reading →
           </a>
+        </p>
+        <p class="ornament-end mt-16" aria-hidden="true">
+          <img src="/ornaments/ornament-asterisk.png" alt="" width="28" height="28" decoding="async" />
         </p>
       </div>
     </div>

@@ -305,3 +305,52 @@ html.js [data-reveal][data-revealed] {
     will-change: auto;
   }
 }
+
+/* Specimen art — sparse ornaments + corner vignette (never near About MateMark) */
+.hero-vignette {
+  pointer-events: none;
+  position: absolute;
+  right: -4rem;
+  bottom: -3rem;
+  z-index: 0;
+  width: min(28rem, 55vw);
+  height: auto;
+  opacity: 0.14;
+  mix-blend-mode: multiply;
+}
+
+[data-theme="dark"] .hero-vignette {
+  opacity: 0.22;
+  mix-blend-mode: screen;
+}
+
+.footer-vignette {
+  pointer-events: none;
+  position: absolute;
+  right: -3rem;
+  bottom: -4rem;
+  width: min(18rem, 40vw);
+  height: auto;
+  opacity: 0.1;
+  mix-blend-mode: multiply;
+}
+
+[data-theme="dark"] .footer-vignette {
+  opacity: 0.18;
+  mix-blend-mode: screen;
+}
+
+.ornament-end {
+  margin: 0;
+  line-height: 0;
+}
+
+.ornament-end img {
+  display: inline-block;
+  opacity: 0.55;
+}
+
+[data-theme="dark"] .ornament-end img {
+  opacity: 0.7;
+  filter: invert(1) sepia(0.2) hue-rotate(20deg);
+}
