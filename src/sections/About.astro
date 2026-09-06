@@ -44,16 +44,22 @@ const useBrandMark =
 <section class="section-shell py-24 md:py-32" id={SECTION_ID}>
   <div class="mx-auto w-full max-w-6xl px-6 md:px-12 lg:px-16">
     <Title href={href} label={label} kicker="02 — About." />
-    <div class="mt-12 grid grid-cols-1 items-start gap-12 md:grid-cols-12 md:gap-10">
-      <div
-        class="order-2 flex justify-center md:order-1 md:col-span-4 md:justify-start md:pt-1"
-        data-reveal="right"
-      >
-        {useBrandMark ? (
-          <div class="flex items-start justify-center p-4 md:p-2">
-            <MateMark />
-          </div>
-        ) : (
+
+    {useBrandMark ? (
+      <div class="mt-10 max-w-2xl">
+        <div class="mb-8" data-reveal="down">
+          <MateMark class="mate-mark h-24 w-24 text-[var(--color-ink)] md:h-28 md:w-28" />
+        </div>
+        <div data-reveal="down" style="--reveal-delay: 80ms">
+          <Article content={content} />
+        </div>
+      </div>
+    ) : (
+      <div class="mt-12 grid grid-cols-1 items-start gap-12 md:grid-cols-12 md:gap-10">
+        <div
+          class="order-2 flex justify-center md:order-1 md:col-span-4 md:justify-start md:pt-1"
+          data-reveal="right"
+        >
           <figure class="max-w-sm overflow-hidden border border-[var(--color-rule)] bg-[var(--color-paper-2)] md:max-w-none">
             <img
               class="aspect-[4/5] w-full object-cover"
@@ -65,11 +71,11 @@ const useBrandMark =
               decoding="async"
             />
           </figure>
-        )}
+        </div>
+        <div class="order-1 min-w-0 md:order-2 md:col-span-8" data-reveal="down">
+          <Article content={content} />
+        </div>
       </div>
-      <div class="order-1 min-w-0 md:order-2 md:col-span-8" data-reveal="down">
-        <Article content={content} />
-      </div>
-    </div>
+    )}
   </div>
 </section>
