@@ -6,7 +6,7 @@ type Props = Link & { kicker?: string };
 const { href, label, kicker } = Astro.props;
 ---
 
-<div class="section-head">
+<div class="section-head" data-reveal="left">
   {kicker && <p class="section-kicker font-ui">{kicker}</p>}
   <h2 class="font-display text-4xl text-[var(--color-ink)] md:text-5xl">
     <a class="section-title-link relative pb-1" href={href}>{label}</a>

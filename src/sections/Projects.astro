@@ -16,8 +16,8 @@ const { label, href } = getSectionLink(SECTION_ID);
   <div class="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 md:px-12 lg:px-16">
     <Title href={href} label={label} kicker="03 — Work." />
     <ul class="editorial-index">
-      {projects.map((project) => (
-        <li>
+      {projects.map((project, i) => (
+        <li data-reveal="down" style={`--reveal-delay: ${i * 90}ms`}>
           <a class="index-row" href={project.href} target="_blank" rel="noopener noreferrer">
             <span class="index-year font-ui">{project.yearReleased}</span>
             <span class="index-body">
