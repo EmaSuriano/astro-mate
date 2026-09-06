@@ -1,6 +1,5 @@
 ---
 import type { Config } from "../types";
-import ScrollIcon from "../components/ScrollIcon.astro";
 
 type Props = Pick<Config, "name" | "roles" | "social">;
 
@@ -16,67 +15,49 @@ const rolesLine = roles.map(stripEmoji).filter(Boolean).join(" · ");
 ---
 
 <section
-  class="hero-specimen relative isolate min-h-dvh overflow-hidden bg-[var(--color-paper)] text-[var(--color-ink)]"
+  class="hero-specimen relative isolate min-h-dvh w-full overflow-hidden bg-[var(--color-paper)] text-[var(--color-ink)]"
   id="home"
 >
   <div class="hero-whisper" aria-hidden="true"></div>
-  <img
-    class="hero-vignette"
-    src="/vignette-corner.png"
-    alt=""
-    width="480"
-    height="480"
-    aria-hidden="true"
-    decoding="async"
-  />
 
-  <div class="relative z-10 flex min-h-dvh w-full flex-col pt-24 pb-24">
-    <!-- Full-bleed double rule (outside max-w shell) for cover intent -->
-    <div class="hero-double-rule w-full shrink-0" aria-hidden="true"></div>
+  <div class="relative z-10 flex min-h-dvh w-full max-w-none flex-col pt-24 pb-24">
+    <!-- Full-bleed double rule: viewport width, outside padded content shell -->
+    <div class="hero-double-rule w-full max-w-none shrink-0" aria-hidden="true"></div>
 
     <div
       class="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center px-6 md:px-12 lg:px-16"
     >
-      <div class="specimen-grid flex flex-1 flex-col justify-center">
-        <p class="specimen-label" aria-hidden="true">01 — Intro.</p>
-        <div class="specimen-main text-left">
-          <h1 class="font-display text-display font-normal tracking-tight text-[var(--color-ink)]">
-            Hello, I&apos;m {name}
-          </h1>
-          <p class="mt-6 max-w-2xl font-serif text-lg leading-relaxed text-[var(--color-muted)] md:text-xl">
-            {rolesLine}
-          </p>
-          <ul class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 font-ui">
-            {
-              social.map((link) => (
-                <li>
-                  <a
-                    class="text-sm tracking-wide text-[var(--color-muted)] transition-colors hover:text-[var(--color-accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-focus)]"
-                    href={link.href}
-                  >
-                    {link.label} →
-                  </a>
-                </li>
-              ))
-            }
-          </ul>
-          <p class="mt-12">
-            <a
-              class="font-ui text-sm text-[var(--color-ink)] underline-offset-4 transition-colors hover:text-[var(--color-accent)] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-focus)]"
-              href="#about"
-            >
-              Continue reading →
-            </a>
-          </p>
-          <p class="ornament-end mt-16" aria-hidden="true">
-            <img src="/ornaments/ornament-asterisk.png" alt="" width="28" height="28" decoding="async" />
-          </p>
-        </div>
+      <!-- Simple left stack — no specimen 12-col / empty right columns -->
+      <div class="hero-copy w-full max-w-5xl text-left">
+        <h1 class="font-display text-display font-normal tracking-tight text-[var(--color-ink)]">
+          Hello, I&apos;m {name}
+        </h1>
+        <p class="mt-6 max-w-2xl font-serif text-lg leading-relaxed text-[var(--color-muted)] md:text-xl">
+          {rolesLine}
+        </p>
+        <ul class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 font-ui">
+          {
+            social.map((link) => (
+              <li>
+                <a
+                  class="text-sm tracking-wide text-[var(--color-muted)] transition-colors hover:text-[var(--color-accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-focus)]"
+                  href={link.href}
+                >
+                  {link.label} →
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <p class="mt-12">
+          <a
+            class="font-ui text-sm text-[var(--color-ink)] underline-offset-4 transition-colors hover:text-[var(--color-accent)] hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-focus)]"
+            href="#about"
+          >
+            Continue reading →
+          </a>
+        </p>
       </div>
-    </div>
-
-    <div class="absolute bottom-10 left-1/2 -translate-x-1/2">
-      <ScrollIcon href="#about" />
     </div>
   </div>
 </section>
