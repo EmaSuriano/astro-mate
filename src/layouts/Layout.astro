@@ -14,6 +14,11 @@ const canonical = Astro.site
 const metaDescription =
   description ??
   "An accessible and fast portfolio starter for Astro — for developers and tech writers.";
+const ogImage = image
+  ? image
+  : Astro.site
+    ? new URL("/og-image.png", Astro.site).href
+    : "/og-image.png";
 ---
 
 <!doctype html>
@@ -24,7 +29,11 @@ const metaDescription =
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#f7f3eb" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz-wght=6..72,400;6..72,500;6..72,600&family=Source+Serif+4:opsz,wght=8..60,400;8..60,600&display=swap" rel="stylesheet" />
@@ -36,14 +45,11 @@ const metaDescription =
     <meta property="og:title" content={title} />
     <meta property="og:description" content={metaDescription} />
     <meta property="og:url" content={canonical} />
-    {image && <meta property="og:image" content={image} />}
-    <meta
-      name="twitter:card"
-      content={image ? "summary_large_image" : "summary"}
-    />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={metaDescription} />
-    {image && <meta name="twitter:image" content={image} />}
+    <meta name="twitter:image" content={ogImage} />
     <script is:inline>
       (function () {
         function applyTheme(theme) {

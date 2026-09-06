@@ -7,8 +7,17 @@ const { name, social } = Astro.props;
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="border-t border-[var(--color-rule)] bg-[var(--color-paper)] px-6 py-10 text-[var(--color-muted)] md:px-12 lg:px-16">
-  <div class="mx-auto flex w-full max-w-6xl flex-col gap-4 font-ui text-sm sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-x-8 sm:gap-y-3">
+<footer class="footer-band relative overflow-hidden border-t border-[var(--color-rule)] bg-[var(--color-paper)] px-6 py-10 text-[var(--color-muted)] md:px-12 lg:px-16">
+  <img
+    class="footer-vignette"
+    src="/vignette-corner.png"
+    alt=""
+    width="360"
+    height="360"
+    aria-hidden="true"
+    decoding="async"
+  />
+  <div class="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-4 font-ui text-sm sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-x-8 sm:gap-y-3">
     <p class="font-display text-base tracking-tight text-[var(--color-ink)]">{name}</p>
     <p class="text-[var(--color-muted)]">A quiet portfolio theme</p>
     <ul class="flex flex-wrap items-center gap-x-4 gap-y-2">
@@ -18,6 +27,9 @@ const currentYear = new Date().getFullYear();
         </li>
       ))}
     </ul>
-    <p class="sm:ml-auto">&copy; {currentYear}</p>
+    <p class="ornament-end sm:ml-auto" aria-hidden="true">
+      <img src="/ornaments/ornament-rule.png" alt="" width="48" height="12" decoding="async" />
+    </p>
+    <p>&copy; {currentYear}</p>
   </div>
 </footer>
