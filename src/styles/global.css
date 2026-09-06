@@ -310,8 +310,8 @@ html.js [data-reveal][data-revealed] {
 .hero-vignette {
   pointer-events: none;
   position: absolute;
-  right: -4rem;
-  bottom: -3rem;
+  right: 0;
+  bottom: 0;
   z-index: 0;
   width: min(28rem, 55vw);
   height: auto;
